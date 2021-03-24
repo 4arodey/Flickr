@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // Pushed it to git, because it is the test credentials.
+  // Paste real credentials to your IDE or use a different way.
+  flickr: {
+    key: '10ffc02e6e80e3d9fc21bc8454590e15',
+    secret: 'bd3bd7ea1d3a4e73'
+  }
 };
 
 /*

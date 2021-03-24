@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  public items = [];
+
+  onChanged(items: any): void {
+    this.items = items;
+  }
 }

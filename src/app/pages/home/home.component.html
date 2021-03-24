@@ -1,1 +1,4 @@
-<div style="height: 1000px"></div>
+<app-layout-item [paddingBottom]="true" [paddingTop]="true">
+  <app-search (onChanged)="onChanged($event)"></app-search>
+  <app-card-preview [items]="items"></app-card-preview>
+</app-layout-item>

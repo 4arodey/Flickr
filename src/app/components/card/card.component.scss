@@ -1,0 +1,32 @@
+$margin-bottom: 10px;
+
+.mat-card {
+  width: 400px;
+  padding: 10px 30px;
+}
+
+.mat-card-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 400px;
+}
+
+.image-container {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  margin-bottom: $margin-bottom;
+}
+
+.image-item {
+  width: 100%;
+}
+
+.mat-raised-button {
+  margin-bottom: $margin-bottom;
+}
+
+.mat-form-field {
+  width: 100%;
+}
