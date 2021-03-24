@@ -7,6 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "htmllint": "prettylint \"**/*.html\" && htmlhint \"**/*.html\"l --config .htmlhintrc.json",
+    "htmllint-fix": "prettylint \"**/*.html\" --fix && htmlhint \"**/*.html\" --config .htmlhintrc.json",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "stylelint \"**/*.scss\" --fix",
     "e2e": "ng e2e"
@@ -41,6 +43,8 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "prettier": "^2.2.1",
+    "prettylint": "^1.0.0",
     "protractor": "~7.0.0",
     "stylelint": "^13.12.0",
     "stylelint-config-recommended-scss": "^4.2.0",
