@@ -1,10 +1,9 @@
 $layout_item_max_width: 1450px;
 $padding: 40px;
 
-
 .layout-item-container {
-  max-width: $layout_item_max_width;
   margin: auto;
+  max-width: $layout_item_max_width;
 }
 
 .has-padding-top {

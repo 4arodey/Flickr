@@ -1,22 +1,22 @@
 $margin-bottom: 10px;
 
 .mat-card {
-  width: 400px;
   padding: 10px 30px;
+  width: 400px;
 }
 
 .mat-card-title {
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
   width: 400px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .image-container {
+  margin-bottom: $margin-bottom;
+  overflow: hidden;
   width: 100%;
   height: 260px;
-  overflow: hidden;
-  margin-bottom: $margin-bottom;
 }
 
 .image-item {

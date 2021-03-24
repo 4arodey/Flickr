@@ -1,7 +1,7 @@
 $footer-height: 125px;
 
 .content-container {
-  height: calc(100% - #{$footer-height});
-  overflow-y: auto;
   margin-bottom: 100px;
+  overflow-y: auto;
+  height: calc(100% - #{$footer-height});
 }
