@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
 import { SearchImage } from 'src/app/interfaces/flickr-image';
 
@@ -8,7 +8,7 @@ import { SearchImage } from 'src/app/interfaces/flickr-image';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  @Output() onChanged = new EventEmitter();
+  @Output() public loadImages = new EventEmitter();
   constructor(private flickrService: SearchService) { }
 
   search(event: any): void {
@@ -18,7 +18,7 @@ export class SearchComponent {
       this.flickrService.getItems(keyword)
         .subscribe(
           (res: SearchImage[]) => {
-            this.onChanged.emit(res);
+            this.loadImages.emit(res);
           }
         );
     }

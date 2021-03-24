@@ -13,7 +13,7 @@ export class SearchService {
 
   getItems(keyword: string): any {
     const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
-    const params = `api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=12`;
+    const params = `api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=25`;
     const urlArr: any[] = [];
 
     return  this.http.get(url + params).pipe(
