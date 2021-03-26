@@ -8,12 +8,12 @@ import { IFlickrImage } from 'src/app/interfaces/flickr-image';
   providedIn: 'root'
 })
 export class SearchService {
-
   constructor(private http: HttpClient) { }
 
-  getItems(keyword: string): any {
+  getItems(keyword: string, pageIndex: number): any {
+    console.log(pageIndex);
     const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
-    const params = `api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=25`;
+    const params = `api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=10&page=${pageIndex}`;
     const urlArr: any[] = [];
 
     return  this.http.get(url + params).pipe(

@@ -1,10 +1,11 @@
 <mat-form-field>
   <mat-label>Find images</mat-label>
   <input
+    #searchInput
     matInput
     type="search"
     class="form-control"
-    (keyup.enter)="search($event)"
+    (keyup.enter)="search(searchInput.value)"
     placeholder="Enter the text to search images"
   />
 </mat-form-field>

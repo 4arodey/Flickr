@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SearchImage } from 'src/app/interfaces/flickr-image';
+import { ISearchImage } from 'src/app/interfaces/flickr-image';
 
 @Component({
   selector: 'app-card-preview',
@@ -7,5 +7,5 @@ import { SearchImage } from 'src/app/interfaces/flickr-image';
   styleUrls: ['./card-preview.component.scss']
 })
 export class CardPreviewComponent {
-  @Input() items: SearchImage[] = [];
+  @Input() items: ISearchImage[] = [];
 }

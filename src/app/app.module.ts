@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/card/card.component';
 import { CardPreviewComponent } from './components/card-preview/card-preview.component';
 import { LayoutItemComponent } from './components/layout-item/layout-item.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { LayoutItemComponent } from './components/layout-item/layout-item.compon
     CardComponent,
     CardPreviewComponent,
     LayoutItemComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { LayoutItemComponent } from './components/layout-item/layout-item.compon
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

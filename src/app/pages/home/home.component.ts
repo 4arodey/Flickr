@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   public items = [];
+  public pageIndex = 0;
 
-  onChanged(items: any): void {
+  changeItems(items: any): void {
     this.items = items;
+  }
+
+  changePage(pageIndex: number): void {
+    this.pageIndex = pageIndex;
   }
 }

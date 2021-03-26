@@ -1,4 +1,4 @@
-export interface SearchImage {
+export interface ISearchImage {
   url: string;
   title: string;
 }

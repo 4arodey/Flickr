@@ -21,6 +21,9 @@
       true,
       "rxjs/Rx"
     ],
+    "selector-pseudo-element-no-unknown": [true, {
+      "ignorePseudoElements": ["ng-deep"]
+    }],
     "import-spacing": true,
     "indent": {
       "options": [

@@ -1,4 +1,8 @@
 <app-layout-item [paddingBottom]="true" [paddingTop]="true">
-  <app-search (loadImages)="onChanged($event)"></app-search>
+  <app-search
+    (loadItems)="changeItems($event)"
+    [pageIndex]="pageIndex"
+  ></app-search>
+  <app-pagination (pageChangedEvent)="changePage($event)"></app-pagination>
   <app-card-preview [items]="items"></app-card-preview>
 </app-layout-item>
