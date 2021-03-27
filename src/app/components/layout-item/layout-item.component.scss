@@ -1,8 +1,15 @@
 $layout_item_max_width: 1450px;
 $padding: 40px;
 $padding-left: 80px;
+$footer-height: 125px;
 
 .layout-item-container {
+  margin-bottom: 100px;
+  overflow-y: auto;
+  height: calc(100% - #{$footer-height});
+}
+
+.layout-item {
   margin: auto;
   max-width: $layout_item_max_width;
 }

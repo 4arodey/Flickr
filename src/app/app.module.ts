@@ -13,7 +13,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ContentComponent } from './components/content/content.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
@@ -24,13 +23,16 @@ import { LayoutItemComponent } from './components/layout-item/layout-item.compon
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
+import { TagsComponent } from './components/tags/tags.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContentComponent,
     NotFoundComponent,
     HomeComponent,
     SearchComponent,
@@ -40,6 +42,7 @@ import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
     PaginationComponent,
     MenuComponent,
     BookmarksComponent,
+    TagsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,10 @@ import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatChipsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,13 @@
-<div
-  [ngClass]="{
-    'has-padding-bottom': paddingBottom,
-    'has-padding-top': paddingTop,
-    'has-padding-left': paddingLeft,
-    'has-padding-right': paddingRight
-  }"
-  class="layout-item-container"
->
-  <ng-content></ng-content>
+<div class="layout-item-container">
+  <div
+    [ngClass]="{
+      'has-padding-bottom': paddingBottom,
+      'has-padding-top': paddingTop,
+      'has-padding-left': paddingLeft,
+      'has-padding-right': paddingRight
+    }"
+    class="layout-item"
+  >
+    <ng-content></ng-content>
+  </div>
 </div>
