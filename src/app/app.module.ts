@@ -22,6 +22,8 @@ import { CardComponent } from './components/card/card.component';
 import { CardPreviewComponent } from './components/card-preview/card-preview.component';
 import { LayoutItemComponent } from './components/layout-item/layout-item.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CardPreviewComponent,
     LayoutItemComponent,
     PaginationComponent,
+    MenuComponent,
+    BookmarksComponent,
   ],
   imports: [
     BrowserModule,

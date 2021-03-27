@@ -9,7 +9,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class PaginationComponent implements OnInit {
   @Output() public pageChangedEvent: EventEmitter<number> = new EventEmitter<number>();
 
-  public pageIndex = 1;
+  public pageIndex = 0;
   public pageSizeOptions = [10];
   public pageSize = 10;
   public pageEvent: PageEvent;

@@ -1,4 +1,8 @@
-<app-layout-item [paddingBottom]="true" [paddingTop]="true">
+<app-layout-item
+  [paddingBottom]="true"
+  [paddingTop]="true"
+  [paddingLeft]="true"
+>
   <app-search
     (loadItems)="changeItems($event)"
     [pageIndex]="pageIndex"

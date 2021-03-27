@@ -1,5 +1,6 @@
 $layout_item_max_width: 1450px;
 $padding: 40px;
+$padding-left: 80px;
 
 .layout-item-container {
   margin: auto;
@@ -15,7 +16,7 @@ $padding: 40px;
 }
 
 .has-padding-left {
-  padding-left: $padding;
+  padding-left: $padding-left;
 }
 
 .has-padding-right {

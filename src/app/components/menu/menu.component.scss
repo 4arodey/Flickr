@@ -1,0 +1,24 @@
+$header-height: 64px;
+$menu-width: 80px;
+$border-color: whitesmoke;
+$padding: 50px;
+$button-margin: 20px;
+
+.menu-container {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  display: flex;
+  padding-top: $padding;
+  overflow-x: hidden;
+  width: $menu-width;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-right: 4px solid $border-color;
+}
+
+.menu-item {
+  margin-bottom: $button-margin;
+}
