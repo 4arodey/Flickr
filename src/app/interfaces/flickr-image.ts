@@ -1,6 +1,7 @@
 export interface ISearchImage {
   url: string;
   title: string;
+  tags?: Array<string>;
 }
 
 export interface IFlickrImage {

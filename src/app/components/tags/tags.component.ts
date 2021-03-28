@@ -1,5 +1,5 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
@@ -12,6 +12,10 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent {
+  @ViewChild('tagsInput') tagsInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @Output() public tagChangeEvent: EventEmitter<object> = new EventEmitter<object>();
+
   visible = true;
   selectable = true;
   removable = true;
@@ -20,9 +24,6 @@ export class TagsComponent {
   filteredTags: Observable<string[]>;
   tags: string[] = [];
   allTags: string[] = [];
-
-  @ViewChild('tagsInput') tagsInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor() {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
@@ -43,7 +44,7 @@ export class TagsComponent {
     }
 
     this.tagCtrl.setValue(null);
-    console.log(this.tags);
+    this.tagChangeEvent.emit(this.tags);
   }
 
   remove(tag: string): void {
