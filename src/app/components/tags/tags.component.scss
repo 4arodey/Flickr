@@ -1,3 +1,14 @@
+:host ::ng-deep {
+  .mat-chip-list-wrapper {
+    height: 40px;
+    overflow-y: auto;
+  }
+
+  .mat-form-field-label {
+    padding-top: 10px;
+  }
+}
+
 .tags-container {
   width: 100%;
 }

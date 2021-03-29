@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import {IPageChange} from 'src/app/interfaces/flickr-image';
 
 @Component({
   selector: 'app-pagination',
@@ -19,7 +20,7 @@ export class PaginationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public changePage(eventValue: any): void {
+  public changePage(eventValue: IPageChange ): void {
     this.pageChangedEvent.emit(eventValue.pageIndex + 1);
   }
 }

@@ -22,7 +22,7 @@ export class SearchComponent implements OnChanges {
     }
   }
 
-  search(keyword: any): void {
+  search(keyword: string): void {
     if (keyword && keyword.length > 0) {
       this.searchService.getItems(keyword, this.pageIndex)
         .subscribe(

@@ -1,4 +1,5 @@
 export interface ISearchImage {
+  id?: string;
   url: string;
   title: string;
   tags?: Array<string>;
@@ -16,4 +17,8 @@ export interface IFlickrOutput {
   photos: {
     photo: IFlickrImage[];
   };
+}
+
+export interface IPageChange {
+  pageIndex: number;
 }

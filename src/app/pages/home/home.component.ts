@@ -9,7 +9,7 @@ export class HomeComponent {
   public items = [];
   public pageIndex = 0;
 
-  changeItems(items: any): void {
+  changeItems(items: object[]): void {
     this.items = items;
   }
 

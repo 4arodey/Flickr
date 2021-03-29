@@ -1,0 +1,11 @@
+<app-layout-item
+  [paddingTop]="true"
+  [paddingLeft]="true"
+>
+  <app-pagination (pageChangedEvent)="changePage($event)"></app-pagination>
+  <app-card-preview
+    [items]="items"
+    [isBookmarks]="true"
+  >
+  </app-card-preview>
+</app-layout-item>
