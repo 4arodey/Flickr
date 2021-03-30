@@ -8,16 +8,11 @@ import {LocalstorageService} from 'src/app/services/localstorage.service';
   styleUrls: ['./card-preview.component.scss']
 })
 export class CardPreviewComponent {
+  @Output() public cardDeleteEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() items: any;
   @Input() isBookmarks: boolean;
 
-  constructor(private cdr: ChangeDetectorRef, private localstorageService: LocalstorageService) {
-  }
-
-  public removeCard(value: boolean): void {
-    if (value) {
-      this.items = this.localstorageService.getItems();
-      this.cdr.detectChanges();
-    }
+  public changeCard(value: boolean): void {
+    this.cardDeleteEvent.emit(value);
   }
 }

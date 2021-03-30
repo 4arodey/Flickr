@@ -9,10 +9,18 @@
     <div class="image-container">
       <img class="image-item" src="{{ image }}_c.jpg" alt="{{ title }}" />
     </div>
-    <button *ngIf="!isBookmarks" (click)="sendToLocalstorage()" mat-raised-button color="primary">
+    <button
+      *ngIf="!isBookmarks"
+      (click)="sendToLocalstorage()"
+      mat-raised-button
+      color="primary"
+    >
       Bookmark it!
     </button>
-    <app-tags *ngIf="!isBookmarks" (tagChangeEvent)="applyTags($event)"></app-tags>
-    <p *ngIf="isBookmarks"><b>Tags: </b>{{formatSavedTags}}</p>
+    <app-tags
+      *ngIf="!isBookmarks"
+      (tagChangeEvent)="applyTags($event)"
+    ></app-tags>
+    <p *ngIf="isBookmarks"><b>Tags: </b>{{ formatSavedTags }}</p>
   </mat-card-content>
 </mat-card>

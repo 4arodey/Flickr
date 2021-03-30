@@ -6,6 +6,15 @@ import { ISearchImage } from 'src/app/interfaces/flickr-image';
 })
 export class LocalstorageService {
   public readonly LOCALSTORAGE_DB_NAME: string = 'flickr_items';
+  public pageIndex = 0;
+
+  public getSavedItems(): void {
+    const item = localStorage.getItem(this.LOCALSTORAGE_DB_NAME);
+    const pageStartIndexItem = this.pageIndex * 10;
+    const pageEndIndexItem = pageStartIndexItem + 10;
+
+    return JSON.parse(item).slice(pageStartIndexItem, pageEndIndexItem);
+  }
 
   public getItems(): string {
     const item = localStorage.getItem(this.LOCALSTORAGE_DB_NAME);
@@ -32,5 +41,9 @@ export class LocalstorageService {
     const updatedItemArray = itemArray.filter(item => item.id !== id);
 
     localStorage.setItem(this.LOCALSTORAGE_DB_NAME, JSON.stringify(updatedItemArray));
+  }
+
+  public changePage(value): void {
+    this.pageIndex = value;
   }
 }

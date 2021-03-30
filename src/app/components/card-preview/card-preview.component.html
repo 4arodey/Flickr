@@ -1,11 +1,11 @@
 <div class="card-preview-container">
-    <app-card
-      *ngFor="let item of items;"
-      [id]="item.id"
-      [title]="item.title"
-      [image]="item.url"
-      [isBookmarks]="isBookmarks"
-      [savedTags]="item.tags"
-      (cardDeleteEvent)="removeCard($event)"
-    ></app-card>
+  <app-card
+    *ngFor="let item of items"
+    [id]="item.id"
+    [title]="item.title"
+    [image]="item.url"
+    [isBookmarks]="isBookmarks"
+    [savedTags]="item.tags"
+    (cardDeleteEvent)="changeCard($event)"
+  ></app-card>
 </div>

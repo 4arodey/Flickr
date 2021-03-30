@@ -1,11 +1,9 @@
-<app-layout-item
-  [paddingTop]="true"
-  [paddingLeft]="true"
->
-  <app-pagination (pageChangedEvent)="changePage($event)"></app-pagination>
+<app-layout-item [paddingTop]="true" [paddingLeft]="true">
+  <app-pagination (pageChangedEvent)="changePage()"></app-pagination>
   <app-card-preview
     [items]="items"
     [isBookmarks]="true"
+    (cardDeleteEvent)="removeCard($event)"
   >
   </app-card-preview>
 </app-layout-item>
