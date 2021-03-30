@@ -1,8 +1,18 @@
 <div class="menu-container">
-  <a class="menu-item" mat-button [routerLink]="'/'">
+  <a
+    class="menu-item"
+    mat-button
+    [routerLink]="'home'"
+    [routerLinkActive]="'active-link'"
+  >
     <mat-icon>cloud</mat-icon>
   </a>
-  <a class="menu-item" mat-button [routerLink]="'bookmarks'">
+  <a
+    class="menu-item"
+    mat-button
+    [routerLink]="'bookmarks'"
+    [routerLinkActive]="'active-link'"
+  >
     <mat-icon>library_books</mat-icon>
   </a>
 </div>

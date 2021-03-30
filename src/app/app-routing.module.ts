@@ -7,11 +7,17 @@ import { BookmarksComponent } from 'src/app/pages/bookmarks/bookmarks.component'
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
     component: HomeComponent,
   },
   {
     path: 'bookmarks',
     component: BookmarksComponent,
+
   },
   {
     path: '**',
