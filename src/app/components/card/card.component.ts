@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
+import {SnackbarService} from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-card',
@@ -15,14 +16,16 @@ export class CardComponent {
   @Input() savedTags = [];
   @Input() isBookmarks = false;
 
-  public readonly LOCALSTORAGE_DB_NAME: string = 'flickr_items';
+  public readonly DELETE_ITEM_MESSAGE: string = 'Item deleted';
+  public readonly SAVE_ITEM_MESSAGE: string = 'Item saved';
 
   public tags = [];
 
-  constructor(private localstorageService: LocalstorageService) {
+  constructor(private localstorageService: LocalstorageService, private snackbarService: SnackbarService) {
   }
 
-  public sendToLocalstorage(): void {
+  public saveToLocalstorage(): void {
+    this.snackbarService.show(this.SAVE_ITEM_MESSAGE);
     const item: ISearchImage = { id: this.localstorageService.generateUUID(), url: this.image, title: this.title, tags: this.tags };
 
     this.localstorageService.setItems(item);
@@ -37,6 +40,7 @@ export class CardComponent {
   }
 
   public removeItem(): void {
+    this.snackbarService.show(this.DELETE_ITEM_MESSAGE);
     this.localstorageService.removeItem(this.id);
     this.cardDeleteEvent.emit(true);
   }
