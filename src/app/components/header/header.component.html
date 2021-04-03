@@ -1,11 +1,7 @@
 <mat-toolbar>
   <span class="logo-item" [routerLink]="'/'">Image Finder</span>
   <link rel="stylesheet" />
-  <button
-    mat-icon-button
-    class="button-item"
-    aria-label="Example icon-button with share icon"
-  >
+  <button (click)="openDialog()" mat-icon-button class="button-item">
     <mat-icon>account_circle</mat-icon>
   </button>
 </mat-toolbar>

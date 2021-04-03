@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { NotFoundComponent } from 'src/app/pages/not-found/not-found.component';
 import { BookmarksComponent } from 'src/app/pages/bookmarks/bookmarks.component';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   {
     path: 'bookmarks',
     component: BookmarksComponent,
+    canActivate: [AuthGuard]
 
   },
   {

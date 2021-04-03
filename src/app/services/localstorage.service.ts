@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
+import {CustomAny} from 'src/app/interfaces/generic';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalstorageService {
-  public readonly LOCALSTORAGE_DB_NAME: string = 'flickr_items';
+  public readonly  LOCALSTORAGE_DB_NAME = 'flickr_items';
   public pageIndex = 0;
 
   public getSavedItems(): void {
@@ -37,7 +38,7 @@ export class LocalstorageService {
   }
 
   public removeItem(id: string): void {
-    const itemArray: any  = [...this.getItems() || []];
+    const itemArray: CustomAny  = [...this.getItems() || []];
     const updatedItemArray = itemArray.filter(item => item.id !== id);
 
     localStorage.setItem(this.LOCALSTORAGE_DB_NAME, JSON.stringify(updatedItemArray));

@@ -13,7 +13,7 @@ export class SearchService {
 
   getItems(keyword: string, pageIndex: number): Observable<Array<object>> {
     const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
-    const params = `api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=10&page=${pageIndex}`;
+    const params = `api_key=${environment.flickr.key}&text=${keyword}&tags=${keyword}&format=json&nojsoncallback=1&per_page=10&page=${pageIndex}`;
     const urlArr = [];
 
     return  this.http.get(url + params).pipe(

@@ -14,3 +14,12 @@ body {
   color: black;
   background: white;
 }
+
+.cdk-global-scrollblock {
+  overflow: hidden;
+}
+
+.mat-dialog-container {
+  background: unset;
+  box-shadow: unset;
+}

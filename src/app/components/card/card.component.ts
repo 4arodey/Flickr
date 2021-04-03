@@ -1,14 +1,15 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
 import {SnackbarService} from 'src/app/services/snackbar.service';
+import {AuthService} from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
+export class CardComponent implements OnInit{
   @Output() public cardDeleteEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() id: string;
   @Input() title: string;
@@ -16,12 +17,20 @@ export class CardComponent {
   @Input() savedTags = [];
   @Input() isBookmarks = false;
 
+  public tags = [];
+  public isEnabled = true;
+
   public readonly DELETE_ITEM_MESSAGE: string = 'Item deleted';
   public readonly SAVE_ITEM_MESSAGE: string = 'Item saved';
 
-  public tags = [];
+  constructor(
+    private localstorageService: LocalstorageService,
+    private snackbarService: SnackbarService,
+    private authService: AuthService,
+  ) {}
 
-  constructor(private localstorageService: LocalstorageService, private snackbarService: SnackbarService) {
+  ngOnInit(): void {
+    this.isEnabled = this.authService.checkUser();
   }
 
   public saveToLocalstorage(): void {

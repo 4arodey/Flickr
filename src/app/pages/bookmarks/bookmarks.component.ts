@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import {formatNumber} from '@angular/common';
+import {CustomAny} from 'src/app/interfaces/generic';
 
 @Component({
   selector: 'app-bookmarks',
@@ -8,7 +9,7 @@ import {formatNumber} from '@angular/common';
   styleUrls: ['./bookmarks.component.scss']
 })
 export class BookmarksComponent implements OnInit {
-  public items: any;
+  public items: CustomAny;
 
   public readonly FIRST_PAGE_INDEX: number = 0;
 
@@ -20,7 +21,7 @@ export class BookmarksComponent implements OnInit {
     this.items = this.localstorageService.getSavedItems();
   }
 
-  changeItems(items: any): void {
+  changeItems(items: CustomAny): void {
     this.items = items;
   }
 

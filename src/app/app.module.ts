@@ -29,6 +29,14 @@ import {MatChipsModule} from '@angular/material/chips';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { LoginComponent} from './components/login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +52,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MenuComponent,
     BookmarksComponent,
     TagsComponent,
+    LoginComponent,
   ],
+  entryComponents: [LoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -60,7 +70,12 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatChipsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
