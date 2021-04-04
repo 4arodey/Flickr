@@ -38,4 +38,8 @@ export class ActiveUserDirective {
   @HostListener('window:mouseout') stopWatching(): void {
     clearTimeout(this.userActivity);
   }
+
+  @HostListener('window:focus') stopWatching2(): void {
+    this.router.navigate(['home']);
+  }
 }
