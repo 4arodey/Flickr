@@ -1,0 +1,36 @@
+import {Directive, HostListener} from '@angular/core';
+import {Subject} from 'rxjs';
+import {CustomAny} from 'src/app/interfaces/generic';
+import {AuthService} from 'src/app/services/auth.service';
+
+@Directive({
+  selector: '[appActiveUser]'
+})
+export class ActiveUserDirective {
+  userActivity;
+  userInactive: Subject<CustomAny> = new Subject();
+  private readonly timerValue = 60000;
+
+  constructor(private authService: AuthService) {
+    this.userInactive.subscribe(() => this.signOut());
+  }
+
+  setTimeout(): void {
+    this.userActivity = setTimeout(() => {
+      this.userInactive.next(undefined);
+    }, this.timerValue);
+  }
+
+  public signOut(): Promise<boolean> {
+    return this.authService.signOut();
+  }
+
+  @HostListener('window:mousemove') refreshUserState(): void {
+    clearTimeout(this.userActivity);
+    this.setTimeout();
+  }
+
+  @HostListener('window:mouseout') stopWatching(): void {
+    clearTimeout(this.userActivity);
+  }
+}

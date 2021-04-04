@@ -36,6 +36,7 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent} from './components/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ActiveUserDirective } from './directives/active-user.directive';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BookmarksComponent,
     TagsComponent,
     LoginComponent,
+    ActiveUserDirective,
   ],
   entryComponents: [LoginComponent],
   imports: [

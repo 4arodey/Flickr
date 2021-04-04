@@ -1,0 +1,48 @@
+$login_width: 250px;
+$login_height: 300px;
+$close_button_margin: -15px;
+$card_margin: 10px;
+$login_button_width: 250px;
+$login_button_size: 35px;
+$image_border_radius: 100px;
+
+.mat-card {
+  margin: $card_margin;
+}
+
+.login-container {
+  display: flex;
+  width: $login_width;
+  height: $login_height;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button {
+  width: $login_button_width;
+}
+
+.login-button-img {
+  width: $login_button_size;
+  height: $login_button_size;
+}
+
+.image-item {
+  border-radius: $image_border_radius;
+}
+
+.close-button-container {
+  display: flex;
+  height: 0;
+  justify-content: flex-end;
+}
+
+.close-button-item {
+  font-size: 1rem;
+}
+
+.mat-icon-button {
+  margin-top: $close_button_margin;
+  margin-right: $close_button_margin;
+}

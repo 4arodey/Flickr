@@ -1,0 +1,37 @@
+<mat-card>
+  <div class="close-button-container">
+    <button onclick="this.blur()" (click)="close()" mat-icon-button>
+      <mat-icon class="close-button-item" color="warn">clear</mat-icon>
+    </button>
+  </div>
+  <div
+    class="login-container"
+    *ngIf="authService.user$ | async as user; else login"
+  >
+    <img class="image-item" src="{{ user.photoURL }}" alt="" />
+    <p><b>Name:</b> {{ user.displayName }}</p>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <button mat-raised-button class="login-button" (click)="signOut()">
+      <mat-icon>logout</mat-icon> LogOut
+    </button>
+  </div>
+</mat-card>
+<ng-template #login>
+  <div class="login-container">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <button
+      *ngIf="!isLoading"
+      mat-raised-button
+      class="login-button"
+      (click)="signIn()"
+    >
+      <img
+        class="login-button-img"
+        md-fab-image
+        src="assets/google-icon.png"
+        alt="google"
+      />
+      Login With Google
+    </button>
+  </div>
+</ng-template>
