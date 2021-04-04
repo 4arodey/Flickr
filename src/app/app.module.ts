@@ -34,10 +34,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { LoginComponent} from './components/login/login.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActiveUserDirective } from './directives/active-user.directive';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
+import { PreviewImageComponent } from './components/preview-image/preview-image.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
     LoginComponent,
     ActiveUserDirective,
     UserLoginComponent,
+    PreviewImageComponent,
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -81,7 +83,9 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

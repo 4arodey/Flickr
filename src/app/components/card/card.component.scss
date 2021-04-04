@@ -23,6 +23,7 @@ $margin-bottom: 35px;
 
 .image-item {
   width: 100%;
+  cursor: zoom-in;
 }
 
 .mat-form-field {
@@ -35,11 +36,11 @@ $margin-bottom: 35px;
   justify-content: flex-end;
 }
 
+.delete-button-item {
+  font-size: 1rem;
+}
+
 .mat-icon-button {
   margin-top: -10px;
   margin-right: -35px;
-}
-
-.delete-button-item {
-  font-size: 1rem;
 }

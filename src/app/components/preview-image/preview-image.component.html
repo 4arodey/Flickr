@@ -1,0 +1,8 @@
+<div class="preview-image-container">
+  <div class="delete-button-container">
+    <button (click)="close()" mat-icon-button color="warn">
+      <mat-icon class="delete-button-item">clear</mat-icon>
+    </button>
+  </div>
+  <img [src]="data.imageUrl" [alt]="data.title" />
+</div>

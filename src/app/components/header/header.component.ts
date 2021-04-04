@@ -8,8 +8,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(public dialog: MatDialog) {
-  }
+  constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     this.dialog.open(LoginComponent, {autoFocus: false});

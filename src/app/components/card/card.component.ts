@@ -3,6 +3,8 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
 import {SnackbarService} from 'src/app/services/snackbar.service';
 import {AuthService} from 'src/app/services/auth.service';
+import {MatDialog} from '@angular/material/dialog';
+import {PreviewImageComponent} from 'src/app/components/preview-image/preview-image.component';
 
 @Component({
   selector: 'app-card',
@@ -27,6 +29,7 @@ export class CardComponent implements OnInit{
     private localstorageService: LocalstorageService,
     private snackbarService: SnackbarService,
     private authService: AuthService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -52,5 +55,12 @@ export class CardComponent implements OnInit{
     this.snackbarService.show(this.DELETE_ITEM_MESSAGE);
     this.localstorageService.removeItem(this.id);
     this.cardDeleteEvent.emit(true);
+  }
+
+  zoomImage(): void {
+    this.dialog.open(PreviewImageComponent, {autoFocus: false, data: {
+        imageUrl: this.image + '_c.jpg',
+        title: this.title
+      }});
   }
 }

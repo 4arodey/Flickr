@@ -6,7 +6,7 @@
   </div>
   <mat-card-title title="{{ title }}">{{ title }}</mat-card-title>
   <mat-card-content>
-    <div class="image-container">
+    <div (click)="zoomImage()" class="image-container">
       <img class="image-item" src="{{ image }}_c.jpg" alt="{{ title }}" />
     </div>
     <button
