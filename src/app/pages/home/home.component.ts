@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CustomAny } from 'src/app/interfaces/generic';
 
 @Component({
   selector: 'app-home',
@@ -6,14 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  public items = [];
+  public items: Array<CustomAny>;
   public pageIndex = 0;
 
-  changeItems(items: object[]): void {
+  public changeItems(items: object[]): void {
     this.items = items;
   }
 
-  changePage(pageIndex: number): void {
+  public changePage(pageIndex: number): void {
     this.pageIndex = pageIndex;
   }
 }

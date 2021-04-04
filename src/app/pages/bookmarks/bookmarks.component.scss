@@ -1,0 +1,10 @@
+@import 'src/styles/variables';
+
+$text-color: $text-color;
+$font-size: $content-font-size;
+
+.empty-content-container {
+  margin-top: 85px;
+  font-size: $font-size;
+  color: $text-color;
+}

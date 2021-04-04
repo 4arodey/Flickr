@@ -6,4 +6,7 @@
     (cardDeleteEvent)="removeCard($event)"
   >
   </app-card-preview>
+  <p class="empty-content-container" *ngIf="!items.length">
+    No images here. Would you try to search and add them to the collection?
+  </p>
 </app-layout-item>

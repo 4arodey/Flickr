@@ -21,11 +21,11 @@ export class BookmarksComponent implements OnInit {
     this.items = this.localstorageService.getSavedItems();
   }
 
-  changeItems(items: CustomAny): void {
+  public changeItems(items: CustomAny): void {
     this.items = items;
   }
 
-  changePage(): void {
+  public changePage(): void {
       this.items = this.localstorageService.getSavedItems();
       this.cdr.detectChanges();
   }

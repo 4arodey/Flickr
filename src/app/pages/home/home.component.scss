@@ -1,0 +1,9 @@
+@import 'src/styles/variables';
+
+$text-color: $text-color;
+$font-size: $content-font-size;
+
+.empty-content-container {
+  font-size: $font-size;
+  color: $text-color;
+}

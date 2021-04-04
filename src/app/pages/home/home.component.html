@@ -5,4 +5,7 @@
   ></app-search>
   <app-pagination (pageChangedEvent)="changePage($event)"></app-pagination>
   <app-card-preview [items]="items"></app-card-preview>
+  <p class="empty-content-container" *ngIf="!items">
+    No images here. Would you try to search for anything else?
+  </p>
 </app-layout-item>
