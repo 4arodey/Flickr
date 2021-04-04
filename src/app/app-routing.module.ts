@@ -4,16 +4,22 @@ import { HomeComponent } from 'src/app/pages/home/home.component';
 import { NotFoundComponent } from 'src/app/pages/not-found/not-found.component';
 import { BookmarksComponent } from 'src/app/pages/bookmarks/bookmarks.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import {UserLoginComponent} from 'src/app/pages/user-login/user-login.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'login',
+    component: UserLoginComponent,
   },
   {
     path: 'bookmarks',

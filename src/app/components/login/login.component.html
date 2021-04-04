@@ -8,6 +8,7 @@
     class="login-container"
     *ngIf="authService.user$ | async as user; else login"
   >
+    <h3>Profile</h3>
     <img class="image-item" src="{{ user.photoURL }}" alt="" />
     <p><b>Name:</b> {{ user.displayName }}</p>
     <p><b>Email:</b> {{ user.email }}</p>
@@ -17,6 +18,7 @@
   </div>
 </mat-card>
 <ng-template #login>
+  <h3 *ngIf="!isLoading">Authentication</h3>
   <div class="login-container">
     <mat-spinner *ngIf="isLoading"></mat-spinner>
     <button

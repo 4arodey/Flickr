@@ -2,6 +2,7 @@ import {Directive, HostListener} from '@angular/core';
 import {Subject} from 'rxjs';
 import {CustomAny} from 'src/app/interfaces/generic';
 import {AuthService} from 'src/app/services/auth.service';
+import {Router} from '@angular/router';
 
 @Directive({
   selector: '[appActiveUser]'
@@ -11,7 +12,10 @@ export class ActiveUserDirective {
   userInactive: Subject<CustomAny> = new Subject();
   private readonly timerValue = 60000;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) {
     this.userInactive.subscribe(() => this.signOut());
   }
 
@@ -22,6 +26,7 @@ export class ActiveUserDirective {
   }
 
   public signOut(): Promise<boolean> {
+    this.router.navigate(['login']);
     return this.authService.signOut();
   }
 

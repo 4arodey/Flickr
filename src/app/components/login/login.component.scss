@@ -46,3 +46,8 @@ $image_border_radius: 100px;
   margin-top: $close_button_margin;
   margin-right: $close_button_margin;
 }
+
+h3 {
+  display: flex;
+  justify-content: center;
+}

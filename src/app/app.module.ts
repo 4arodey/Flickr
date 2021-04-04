@@ -37,6 +37,7 @@ import { LoginComponent} from './components/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActiveUserDirective } from './directives/active-user.directive';
+import { UserLoginComponent } from './pages/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ActiveUserDirective } from './directives/active-user.directive';
     TagsComponent,
     LoginComponent,
     ActiveUserDirective,
+    UserLoginComponent,
   ],
   entryComponents: [LoginComponent],
   imports: [

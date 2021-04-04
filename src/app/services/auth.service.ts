@@ -31,6 +31,7 @@ export class AuthService {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
     localStorage.setItem(this.LOCALSTORAGE_NAME, 'user');
+    await this.router.navigate(['/']);
     return this.updateUserDate(credential.user);
   }
 
