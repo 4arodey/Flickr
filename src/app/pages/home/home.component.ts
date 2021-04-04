@@ -10,6 +10,8 @@ export class HomeComponent {
   public items: Array<CustomAny>;
   public pageIndex = 0;
 
+  public readonly ITEMS_LENGTH = 100;
+
   public changeItems(items: object[]): void {
     this.items = items;
   }

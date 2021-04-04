@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getItems(keyword: string, pageIndex: number): Observable<Array<object>> {
     const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';

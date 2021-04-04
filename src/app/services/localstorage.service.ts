@@ -17,6 +17,11 @@ export class LocalstorageService {
     return JSON.parse(item).slice(pageStartIndexItem, pageEndIndexItem);
   }
 
+  public itemsLength(): number {
+    const item = localStorage.getItem(this.LOCALSTORAGE_DB_NAME);
+    return JSON.parse(item).length;
+  }
+
   public getItems(): string {
     const item = localStorage.getItem(this.LOCALSTORAGE_DB_NAME);
     return JSON.parse(item);

@@ -36,4 +36,8 @@ export class BookmarksComponent implements OnInit {
       this.cdr.detectChanges();
     }
   }
+
+  public get itemLength(): number {
+    return this.localstorageService.itemsLength();
+  }
 }
