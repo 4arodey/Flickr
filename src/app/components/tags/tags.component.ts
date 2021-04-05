@@ -1,10 +1,10 @@
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tags',
@@ -14,16 +14,16 @@ import {map, startWith} from 'rxjs/operators';
 export class TagsComponent {
   @ViewChild('tagsInput') tagsInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
+
   @Output() public tagChangeEvent: EventEmitter<object> = new EventEmitter<object>();
 
-  visible = true;
-  selectable = true;
-  removable = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
-  tagCtrl = new FormControl();
-  filteredTags: Observable<string[]>;
-  tags: string[] = [];
-  allTags: string[] = [];
+  public selectable = true;
+  public removable = true;
+  public separatorKeysCodes: number[] = [ENTER, COMMA];
+  public tagCtrl = new FormControl();
+  public filteredTags: Observable<string[]>;
+  public tags: string[] = [];
+  public allTags: string[] = [];
 
   constructor() {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
@@ -31,7 +31,7 @@ export class TagsComponent {
       map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
   }
 
-  add(event: MatChipInputEvent): void {
+  public add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
 
@@ -47,7 +47,7 @@ export class TagsComponent {
     this.tagChangeEvent.emit(this.tags);
   }
 
-  remove(tag: string): void {
+  public remove(tag: string): void {
     const index = this.tags.indexOf(tag);
 
     if (index >= 0) {
@@ -55,7 +55,7 @@ export class TagsComponent {
     }
   }
 
-  selected(event: MatAutocompleteSelectedEvent): void {
+  public selected(event: MatAutocompleteSelectedEvent): void {
     this.tags.push(event.option.viewValue);
     this.tagsInput.nativeElement.value = '';
     this.tagCtrl.setValue(null);

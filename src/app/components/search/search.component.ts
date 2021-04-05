@@ -9,12 +9,13 @@ import { ISearchImage } from 'src/app/interfaces/flickr-image';
 })
 export class SearchComponent implements OnChanges {
   @ViewChild('searchInput') searchInput: ElementRef;
-  @Input() pageIndex: number;
+
+  @Input() public pageIndex: number;
   @Output() public loadItems = new EventEmitter();
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService) {}
 
-  ngOnChanges(): void {
+  public ngOnChanges(): void {
     if (this.searchInput) {
       const keyword = this.searchInput.nativeElement.value.toLowerCase();
 
@@ -22,7 +23,7 @@ export class SearchComponent implements OnChanges {
     }
   }
 
-  search(keyword: string): void {
+  public search(keyword: string): void {
     if (keyword && keyword.length > 0) {
       this.searchService.getItems(keyword, this.pageIndex)
         .subscribe(

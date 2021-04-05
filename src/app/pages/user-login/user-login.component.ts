@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {LoginComponent} from 'src/app/components/login/login.component';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from 'src/app/components/login/login.component';
 
 @Component({
   selector: 'app-user-login',
@@ -11,7 +11,7 @@ export class UserLoginComponent {
   constructor(public dialog: MatDialog) {
   }
 
-  openDialog(): void {
+  public openDialog(): void {
     this.dialog.open(LoginComponent, {autoFocus: false});
   }
 }

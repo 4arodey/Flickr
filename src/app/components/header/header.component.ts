@@ -10,7 +10,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 export class HeaderComponent {
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
+  public openDialog(): void {
     this.dialog.open(LoginComponent, {autoFocus: false});
   }
 }

@@ -1,15 +1,15 @@
-import {Directive, HostListener} from '@angular/core';
-import {Subject} from 'rxjs';
-import {CustomAny} from 'src/app/interfaces/generic';
-import {AuthService} from 'src/app/services/auth.service';
-import {Router} from '@angular/router';
+import { Directive, HostListener } from '@angular/core';
+import { Subject } from 'rxjs';
+import { CustomAny } from 'src/app/interfaces/generic';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Directive({
   selector: '[appActiveUser]'
 })
 export class ActiveUserDirective {
-  userActivity;
-  userInactive: Subject<CustomAny> = new Subject();
+  public userActivity;
+  public userInactive: Subject<CustomAny> = new Subject();
   private readonly timerValue = 60000;
 
   constructor(
@@ -19,7 +19,7 @@ export class ActiveUserDirective {
     this.userInactive.subscribe(() => this.signOut());
   }
 
-  setTimeout(): void {
+  public setTimeout(): void {
     this.userActivity = setTimeout(() => {
       this.userInactive.next(undefined);
     }, this.timerValue);
@@ -37,9 +37,5 @@ export class ActiveUserDirective {
 
   @HostListener('window:mouseout') stopWatching(): void {
     clearTimeout(this.userActivity);
-  }
-
-  @HostListener('window:focus') stopWatching2(): void {
-    this.router.navigate(['home']);
   }
 }

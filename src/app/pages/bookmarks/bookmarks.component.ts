@@ -1,7 +1,6 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
-import {formatNumber} from '@angular/common';
-import {CustomAny} from 'src/app/interfaces/generic';
+import { CustomAny } from 'src/app/interfaces/generic';
 
 @Component({
   selector: 'app-bookmarks',
@@ -13,8 +12,7 @@ export class BookmarksComponent implements OnInit {
 
   public readonly FIRST_PAGE_INDEX: number = 0;
 
-  constructor(private cdr: ChangeDetectorRef, private localstorageService: LocalstorageService) {
-  }
+  constructor(private cdr: ChangeDetectorRef, private localstorageService: LocalstorageService) {}
 
   ngOnInit(): void {
     this.localstorageService.changePage(this.FIRST_PAGE_INDEX);

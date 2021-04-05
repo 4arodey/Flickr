@@ -1,7 +1,5 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
-import { ISearchImage } from 'src/app/interfaces/flickr-image';
-import {LocalstorageService} from 'src/app/services/localstorage.service';
-import {CustomAny} from 'src/app/interfaces/generic';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { CustomAny } from 'src/app/interfaces/generic';
 
 @Component({
   selector: 'app-card-preview',

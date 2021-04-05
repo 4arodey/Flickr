@@ -1,5 +1,5 @@
-import {Component, Inject, Input} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import { Component, Inject, Input } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-preview-image',
@@ -7,14 +7,14 @@ import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
   styleUrls: ['./preview-image.component.scss']
 })
 export class PreviewImageComponent {
-  @Input() imgUrl: string;
+  @Input() public imgUrl: string;
 
   constructor(
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: { imageUrl: string, title: string }
-  ) { }
+    ) {}
 
-  close(): void {
+  public close(): void {
     this.dialog.closeAll();
   }
 }

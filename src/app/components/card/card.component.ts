@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
-import {SnackbarService} from 'src/app/services/snackbar.service';
-import {AuthService} from 'src/app/services/auth.service';
-import {MatDialog} from '@angular/material/dialog';
-import {PreviewImageComponent} from 'src/app/components/preview-image/preview-image.component';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PreviewImageComponent } from 'src/app/components/preview-image/preview-image.component';
 
 @Component({
   selector: 'app-card',
@@ -47,20 +47,20 @@ export class CardComponent implements OnInit{
     this.tags = eventValue;
   }
 
-  public get formatSavedTags(): string {
-    return this.savedTags.toString().split(',').join(', ');
-  }
-
   public removeItem(): void {
     this.snackbarService.show(this.DELETE_ITEM_MESSAGE);
     this.localstorageService.removeItem(this.id);
     this.cardDeleteEvent.emit(true);
   }
 
-  zoomImage(): void {
+  public zoomImage(): void {
     this.dialog.open(PreviewImageComponent, {autoFocus: false, data: {
         imageUrl: this.image + '_c.jpg',
         title: this.title
       }});
+  }
+
+  public get formatSavedTags(): string {
+    return this.savedTags.toString().split(',').join(', ');
   }
 }

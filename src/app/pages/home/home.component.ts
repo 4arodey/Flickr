@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CustomAny } from 'src/app/interfaces/generic';
 
 @Component({

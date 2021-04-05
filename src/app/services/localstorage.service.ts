@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
-import {CustomAny} from 'src/app/interfaces/generic';
+import { CustomAny } from 'src/app/interfaces/generic';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalstorageService {
-  public readonly  LOCALSTORAGE_DB_NAME = 'flickr_items';
   public pageIndex = 0;
+
+  public readonly  LOCALSTORAGE_DB_NAME = 'flickr_items';
 
   public getSavedItems(): void {
     const item = localStorage.getItem(this.LOCALSTORAGE_DB_NAME);
