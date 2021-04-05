@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
 import { SnackbarService } from 'src/app/services/snackbar.service';

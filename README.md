@@ -12,6 +12,7 @@ This project created using Angular version 11.2.0.
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. \
 Run `npm htmlling-fix` to fix all problem with html code. \
 Run `npm stylelint-fix` to fix all problem with scss styles. \
+Run `npm cypress-open` to open cypress tests in the interactive GUI. \
 Run `npm build` to build application. \
 Run `npm firebase-deploy` to deploy application.
 

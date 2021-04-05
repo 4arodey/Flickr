@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit{
 
   constructor(
     public authService: AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
     ) {}
 
   ngOnInit(): void {
