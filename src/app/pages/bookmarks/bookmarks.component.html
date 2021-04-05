@@ -1,6 +1,6 @@
 <app-layout-item [paddingTop]="true" [paddingLeft]="true">
   <app-pagination
-    *ngIf="items.length"
+    *ngIf="!hasItems"
     [itemLength]="itemLength"
     (pageChangedEvent)="changePage()"
   ></app-pagination>
@@ -10,7 +10,7 @@
     (cardDeleteEvent)="removeCard($event)"
   >
   </app-card-preview>
-  <p *ngIf="!items.length" class="empty-content-container">
+  <p *ngIf="hasItems" class="empty-content-container">
     No images here. Would you try to search and add them to the collection?
   </p>
 </app-layout-item>

@@ -40,4 +40,8 @@ export class BookmarksComponent implements OnInit {
   public get itemLength(): number {
     return this.localstorageService.itemsLength();
   }
+
+  public get hasItems(): boolean {
+    return this.items === undefined || !this.items.length;
+  }
 }
