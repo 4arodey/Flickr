@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class ActiveUserDirective {
   userActivity;
   userInactive: Subject<CustomAny> = new Subject();
-  private readonly timerValue = 60000;
+  private readonly timerValue = 6000000;
 
   constructor(
     private authService: AuthService,

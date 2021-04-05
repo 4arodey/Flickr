@@ -1,5 +1,6 @@
 <app-layout-item [paddingTop]="true" [paddingLeft]="true">
   <app-pagination
+    *ngIf="items.length"
     [itemLength]="itemLength"
     (pageChangedEvent)="changePage()"
   ></app-pagination>

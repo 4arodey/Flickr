@@ -9,7 +9,7 @@
     (pageChangedEvent)="changePage($event)"
   ></app-pagination>
   <app-card-preview [items]="items"></app-card-preview>
-  <p class="empty-content-container" *ngIf="!items">
+  <p *ngIf="!items" class="empty-content-container">
     No images here. Would you try to search for anything else?
   </p>
 </app-layout-item>

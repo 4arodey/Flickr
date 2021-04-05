@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import {IFlickrImage, IFlickrOutput} from 'src/app/interfaces/flickr-image';
-import {Observable} from 'rxjs';
+import { IFlickrImage, IFlickrOutput } from 'src/app/interfaces/flickr-image';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
