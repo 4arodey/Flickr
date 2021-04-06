@@ -12,7 +12,7 @@
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "stylelint \"**/*.scss\" --fix",
     "firebase-deploy": "firebase deploy",
-    "cypress-open": "cypress open",
+    "cypress": "cypress open",
     "e2e": "ng e2e"
   },
   "private": true,
