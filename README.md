@@ -9,6 +9,7 @@ This project created using Angular version 11.2.0.
 
 ## Development
 
+Run `npm install` to install all node modules. \
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. \
 Run `npm htmlling-fix` to fix all problem with html code. \
 Run `npm stylelint-fix` to fix all problem with scss styles. \
