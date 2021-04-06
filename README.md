@@ -20,3 +20,9 @@ Run `npm firebase-deploy` to deploy application.
 ## DEMO
 
 If you want to test the application, you can [link to the DEMO!](https://flickr-oleg.web.app)
+
+## SCREENSHOTS
+
+![alt screen](https://farm66.staticflickr.com/65535/51099913038_ae4be2ba1a_c.jpg)
+
+![alt screen](https://farm66.staticflickr.com/65535/51099486079_0634dbfd37_c.jpg)
