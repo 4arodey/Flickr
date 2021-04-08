@@ -14,8 +14,6 @@ import { CustomAny } from 'src/app/interfaces/generic';
 export class AuthService {
   public user$: Observable<IUser>;
 
-  public readonly LOCALSTORAGE_NAME = 'flickr_user';
-
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -31,19 +29,13 @@ export class AuthService {
   public async googleSignIn(): Promise<CustomAny>  {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
-    localStorage.setItem(this.LOCALSTORAGE_NAME, 'user');
     await this.router.navigate(['/']);
     return this.updateUserDate(credential.user);
   }
 
   public async signOut(): Promise<CustomAny> {
     await this.afAuth.signOut();
-    localStorage.removeItem(this.LOCALSTORAGE_NAME);
     return this.router.navigate(['/']);
-  }
-
-  public checkUser(): boolean {
-    return !localStorage.getItem(this.LOCALSTORAGE_NAME);
   }
 
   private updateUserDate({ uid, email, displayName, photoURL }: IUser): Promise<void> {

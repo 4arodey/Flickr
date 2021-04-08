@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ISearchImage } from 'src/app/interfaces/flickr-image';
 import { SnackbarService } from 'src/app/services/snackbar.service';
@@ -11,7 +11,7 @@ import { PreviewImageComponent } from 'src/app/components/preview-image/preview-
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit{
+export class CardComponent {
   @Output() public cardDeleteEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() id: string;
   @Input() title: string;
@@ -31,10 +31,6 @@ export class CardComponent implements OnInit{
     private authService: AuthService,
     public dialog: MatDialog
   ) {}
-
-  ngOnInit(): void {
-    this.isEnabled = this.authService.checkUser();
-  }
 
   public saveToLocalstorage(): void {
     this.snackbarService.show(this.SAVE_ITEM_MESSAGE);
