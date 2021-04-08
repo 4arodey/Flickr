@@ -18,12 +18,9 @@ export class SearchService {
 
     return  this.http.get(url + params).pipe(
       map((res: IFlickrOutput) => {
-        res.photos.photo.forEach((ph: IFlickrImage) => {
-          const photoObj = {
-            url: `https://farm${ph.farm}.staticflickr.com/${ph.server}/${ph.id}_${ph.secret}`,
-            title: ph.title
-          };
-          urlArr.push(photoObj);
+        res.photos.photo.map((ph: IFlickrImage) => {
+          const urlLink = `https://farm${ph.farm}.staticflickr.com/${ph.server}/${ph.id}_${ph.secret}`;
+          urlArr.push({ url: urlLink, title: ph.title });
         });
         return urlArr;
       })

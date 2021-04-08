@@ -20,7 +20,6 @@ export class CardComponent {
   @Input() isBookmarks = false;
 
   public tags = [];
-  public isEnabled = true;
 
   public readonly DELETE_ITEM_MESSAGE: string = 'Item deleted';
   public readonly SAVE_ITEM_MESSAGE: string = 'Item saved';
@@ -28,7 +27,6 @@ export class CardComponent {
   constructor(
     private localstorageService: LocalstorageService,
     private snackbarService: SnackbarService,
-    private authService: AuthService,
     public dialog: MatDialog
   ) {}
 
