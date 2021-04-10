@@ -14,16 +14,13 @@ export class SearchService {
   public getItems(keyword: string, pageIndex: number): Observable<Array<object>> {
     const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
     const params = `api_key=${environment.flickr.key}&text=${keyword}&tags=${keyword}&format=json&nojsoncallback=1&per_page=10&page=${pageIndex}`;
-    const urlArr = [];
 
     return  this.http.get(url + params).pipe(
-      map((res: IFlickrOutput) => {
-        res.photos.photo.map((ph: IFlickrImage) => {
-          const urlLink = `https://farm${ph.farm}.staticflickr.com/${ph.server}/${ph.id}_${ph.secret}`;
-          urlArr.push({ url: urlLink, title: ph.title });
-        });
-        return urlArr;
-      })
+      map((res: IFlickrOutput) => (
+         res.photos.photo.map((ph: IFlickrImage) => (
+          { url: `https://farm${ph.farm}.staticflickr.com/${ph.server}/${ph.id}_${ph.secret}`, title: ph.title }
+          ))
+      ))
     );
   }
 }
