@@ -39,6 +39,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActiveUserDirective } from './directives/active-user.directive';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { PreviewImageComponent } from './components/preview-image/preview-image.component';
+import { FormComponent } from './components/form/form.component';
+import { DynamicFormComponent } from './pages/dynamic-form/dynamic-form.component';
+import { DynamicTableComponent } from './pages/dynamic-table/dynamic-table.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,10 @@ import { PreviewImageComponent } from './components/preview-image/preview-image.
     ActiveUserDirective,
     UserLoginComponent,
     PreviewImageComponent,
+    FormComponent,
+    DynamicFormComponent,
+    DynamicTableComponent,
+    TableComponent,
   ],
   entryComponents: [LoginComponent],
   imports: [

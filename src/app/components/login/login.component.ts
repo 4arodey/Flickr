@@ -17,6 +17,11 @@ export class LoginComponent implements OnInit{
     ) {}
 
   ngOnInit(): void {
+    const data = [
+      {name: 'Oleg', lastName: 'Karpach', age: '19', weight: '70'},
+      {name: 'Olga', lastName: 'Meleshko', age: '23'},
+      {name: 'Vasya', lastName: 'Pupkin'},
+    ];
     this.isUser = this.authService;
     this.authService.user$.subscribe(
       () => this.isLoading = false
