@@ -1,0 +1,13 @@
+$WARNING_COLOR: #dc3545;
+
+.is-invalid {
+  border-color: $WARNING_COLOR;
+}
+
+.text-container {
+  width: 300px;
+}
+
+.invalid-feedback {
+  color: red;
+}

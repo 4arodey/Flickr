@@ -1,5 +1,137 @@
 <div class="card">
   <div class="card-body">
+    <form (ngSubmit)="save()" [formGroup]="customerForm">
+      <div class="form-group">
+        <label class="col-md-2 col-form-label" for="textControlId"
+          >Text control label</label
+        ><br />
+        <input
+          class="form-control"
+          id="textControlId"
+          type="text"
+          placeholder="Input min 3 symbols"
+          formControlName="textControl"
+          [ngClass]="{
+            'is-invalid': touchInput('textControl')
+          }"
+        />
+        <br />
+        <span class="invalid-feedback">
+          <span *ngIf="touchInput('textControl')">
+            Please enter min 3 symbols.
+          </span>
+        </span>
+      </div>
 
+      <div class="form-group">
+        <select class="form-control" formControlName="select">
+          <option value="" disabled selected hidden>Select a State...</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+        <span class="invalid-feedback">
+          <span *ngIf="touchInput('select')"> Please choose your state. </span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              id="checkBoxId"
+              type="checkbox"
+              formControlName="checkBox"
+            />Activate checkbox
+          </label>
+        </div>
+        <span class="invalid-feedback">
+          <span *ngIf="touchInput('checkBox')">
+            Please activate checkbox.
+          </span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="radio"
+          id="radioButton"
+          formControlName="radioButton"
+          name="radioButton"
+        /><label for="radioButton">Check Me</label>
+      </div>
+
+      <div formGroupName="checkboxGroup" class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkboxId1"
+              formControlName="checkbox1"
+              value="2"
+            /><label for="checkboxId1">Activate checkbox 1</label>
+          </label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="checkboxId2"
+                formControlName="checkbox2"
+                value="2"
+              /><label for="checkboxId2">Activate checkbox 2</label>
+            </label>
+          </div>
+        </div>
+        <span class="invalid-feedback">
+          <span *ngIf="touchInput('checkboxGroup')">
+            Please activate checkboxes.
+          </span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="radio"
+          value="Male"
+          formControlName="gender"
+          name="gender"
+        /><span>Male</span>
+        <input
+          type="radio"
+          value="Female"
+          formControlName="gender"
+          name="gender"
+        /><span>Female</span>
+        <span class="invalid-feedback">
+          <span *ngIf="touchInput('gender')"> Please choose your gender </span>
+        </span>
+      </div>
+
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="datepicker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br />
+
+      <button
+        class="btn btn-primary mr-3"
+        type="submit"
+        [title]="
+          customerForm.valid
+            ? 'Save your entered data'
+            : 'Disabled until the form data is valid'
+        "
+        [disabled]="!customerForm.valid"
+      >
+        Save
+      </button>
+    </form>
   </div>
 </div>
