@@ -25,9 +25,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { MenuComponent } from './components/menu/menu.component';
 import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
 import { TagsComponent } from './components/tags/tags.component';
-import {MatChipsModule} from '@angular/material/chips';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -43,6 +43,14 @@ import { FormComponent } from './components/form/form.component';
 import { DynamicFormComponent } from './pages/dynamic-form/dynamic-form.component';
 import { DynamicTableComponent } from './pages/dynamic-table/dynamic-table.component';
 import { TableComponent } from './components/table/table.component';
+import { RadioButtonComponent } from './components/formcontrols/radio-button/radio-button.component';
+import { CheckboxComponent } from './components/formcontrols/checkbox/checkbox.component';
+import { TextComponent } from './components/formcontrols/text/text.component';
+import { CheckboxGroupComponent } from './components/formcontrols/checkbox-group/checkbox-group.component';
+import { RadioButtonGroupComponent } from './components/formcontrols/radio-button-group/radio-button-group.component';
+import { DatepickerComponent } from './components/formcontrols/datepicker/datepicker.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -67,6 +75,12 @@ import { TableComponent } from './components/table/table.component';
     DynamicFormComponent,
     DynamicTableComponent,
     TableComponent,
+    RadioButtonComponent,
+    CheckboxComponent,
+    TextComponent,
+    CheckboxGroupComponent,
+    RadioButtonGroupComponent,
+    DatepickerComponent,
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -83,6 +97,8 @@ import { TableComponent } from './components/table/table.component';
     MatPaginatorModule,
     MatChipsModule,
     ReactiveFormsModule,
+    MatRippleModule,
+    MatNativeDateModule,
     MatAutocompleteModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
@@ -90,6 +106,7 @@ import { TableComponent } from './components/table/table.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    MatDatepickerModule,
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
