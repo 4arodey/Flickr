@@ -25,9 +25,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { MenuComponent } from './components/menu/menu.component';
 import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
 import { TagsComponent } from './components/tags/tags.component';
-import {MatChipsModule} from '@angular/material/chips';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -39,6 +39,19 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActiveUserDirective } from './directives/active-user.directive';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { PreviewImageComponent } from './components/preview-image/preview-image.component';
+import { FormComponent } from './components/form/form.component';
+import { DynamicFormComponent } from './pages/dynamic-form/dynamic-form.component';
+import { RadioButtonComponent } from './components/formcontrols/radio-button/radio-button.component';
+import { CheckboxComponent } from './components/formcontrols/checkbox/checkbox.component';
+import { TextComponent } from './components/formcontrols/text/text.component';
+import { CheckboxGroupComponent } from './components/formcontrols/checkbox-group/checkbox-group.component';
+import { RadioButtonGroupComponent } from './components/formcontrols/radio-button-group/radio-button-group.component';
+import { DatepickerComponent } from './components/formcontrols/datepicker/datepicker.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
+import { KeysPipe } from './pipes/keys.pipe';
+import { DropdownComponent } from './components/formcontrols/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +72,17 @@ import { PreviewImageComponent } from './components/preview-image/preview-image.
     ActiveUserDirective,
     UserLoginComponent,
     PreviewImageComponent,
+    FormComponent,
+    DynamicFormComponent,
+    RadioButtonComponent,
+    CheckboxComponent,
+    TextComponent,
+    CheckboxGroupComponent,
+    RadioButtonGroupComponent,
+    DatepickerComponent,
+    ValidationErrorsComponent,
+    KeysPipe,
+    DropdownComponent,
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -75,6 +99,8 @@ import { PreviewImageComponent } from './components/preview-image/preview-image.
     MatPaginatorModule,
     MatChipsModule,
     ReactiveFormsModule,
+    MatRippleModule,
+    MatNativeDateModule,
     MatAutocompleteModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
@@ -82,6 +108,7 @@ import { PreviewImageComponent } from './components/preview-image/preview-image.
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    MatDatepickerModule,
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },

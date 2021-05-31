@@ -4,7 +4,8 @@ import { HomeComponent } from 'src/app/pages/home/home.component';
 import { NotFoundComponent } from 'src/app/pages/not-found/not-found.component';
 import { BookmarksComponent } from 'src/app/pages/bookmarks/bookmarks.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
-import {UserLoginComponent} from 'src/app/pages/user-login/user-login.component';
+import { UserLoginComponent } from 'src/app/pages/user-login/user-login.component';
+import { DynamicFormComponent } from 'src/app/pages/dynamic-form/dynamic-form.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
     component: BookmarksComponent,
     canActivate: [AuthGuard]
 
+  },
+  {
+    path: 'form',
+    component: DynamicFormComponent
   },
   {
     path: '**',

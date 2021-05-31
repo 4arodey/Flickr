@@ -1,0 +1,16 @@
+<div class="form-group" [formGroup]="dynamicForm">
+  <select class="form-control" formControlName="dropdown">
+    <option value="" disabled selected hidden>Select a State...</option>
+    <option value="AR">Arkansas</option>
+    <option value="CA">California</option>
+    <option value="CO">Colorado</option>
+    <option value="WI">Wisconsin</option>
+    <option value="WY">Wyoming</option>
+  </select>
+
+  <app-validation-errors
+    [formGroup]="dynamicForm"
+    [controlName]="CONTROL_NAME"
+    [errorMessage]="ERROR_MESSAGE"
+  ></app-validation-errors>
+</div>

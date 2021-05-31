@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="save()" [formGroup]="customerForm">
+      <app-text [group]="customerForm"></app-text>
+
+      <app-dropdown [group]="customerForm"></app-dropdown>
+
+      <app-checkbox [group]="customerForm"></app-checkbox>
+
+      <app-radio-button [group]="customerForm"></app-radio-button>
+
+      <app-checkbox-group [group]="customerForm"></app-checkbox-group>
+
+      <app-radio-button-group [group]="customerForm"></app-radio-button-group>
+
+      <app-datepicker [group]="customerForm"></app-datepicker>
+
+      <br />
+      <button
+        class="btn btn-primary mr-3"
+        type="submit"
+        [title]="
+          customerForm.valid
+            ? 'Save your entered data'
+            : 'Disabled until the form data is valid'
+        "
+        [disabled]="!customerForm.valid"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>

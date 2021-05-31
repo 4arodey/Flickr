@@ -1,0 +1,18 @@
+<div class="form-group" [formGroup]="dynamicForm">
+  <div class="form-check">
+    <label class="form-check-label">
+      <input
+        class="form-check-input"
+        id="checkBoxId"
+        type="checkbox"
+        formControlName="checkBox"
+      />Activate checkbox
+    </label>
+  </div>
+
+  <app-validation-errors
+    [formGroup]="dynamicForm"
+    [controlName]="CONTROL_NAME"
+    [errorMessage]="ERROR_MESSAGE"
+  ></app-validation-errors>
+</div>
