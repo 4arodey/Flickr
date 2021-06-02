@@ -1,15 +1,21 @@
+import { CustomAny } from './generic';
+
 export interface IFieldBase {
   id: number;
   title: string;
   required: boolean;
-  value: any;
-  readonly: boolean;
+  value: CustomAny;
+  selectValue?: CustomAny;
+  readonly?: boolean;
   type: FieldType;
 }
 
 export enum FieldType {
-  CHECKBOX,
-  TEXT,
-  RADIO,
-  SELECT
+  CHECKBOX = 'checkbox',
+  TEXT = 'text',
+  RADIO = 'radio',
+  SELECT = 'select',
+  RADIO_GROUP = 'radio',
+  CHECKBOX_GROUP = 'checkbox',
+  DATEPICKER = 'datepicker'
 }

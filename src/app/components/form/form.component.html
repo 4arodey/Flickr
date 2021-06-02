@@ -1,33 +1,158 @@
 <div class="card">
   <div class="card-body">
     <form (ngSubmit)="save()" [formGroup]="customerForm">
-      <app-text [group]="customerForm"></app-text>
+      <div *ngFor="let item of data; let i = index">
+        <div [ngSwitch]="item.id">
+          <ng-template ngSwitchCase="1">
+            <div class="form-control">
+              <input
+                [id]="data[i].id"
+                [type]="data[i].type"
+                [title]="data[i].title"
+                [required]="data[i].required"
+                [readOnly]="data[i].readonly"
+                formControlName="checkBox"
+              />
+              <app-validation-errors
+                [formGroup]="customerForm"
+                [controlName]="'checkBox'"
+                [errorMessage]="'Error'"
+              ></app-validation-errors>
+            </div>
+          </ng-template>
+          <ng-template ngSwitchCase="2">
+            <input
+              class="form-control"
+              [id]="data[i].id"
+              [type]="data[i].type"
+              [title]="data[i].title"
+              [required]="data[i].required"
+              [readOnly]="data[i].readonly"
+              formControlName="radioButton"
+            />
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="'radioButton'"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
+          </ng-template>
+          <ng-template ngSwitchCase="3">
+            <input
+              class="form-control"
+              [id]="data[i].id"
+              [type]="data[i].type"
+              [title]="data[i].title"
+              [required]="data[i].required"
+              [readOnly]="data[i].readonly"
+              placeholder="Input min 3 symbols"
+              formControlName="textControl"
+            />
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="'textControl'"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
+          </ng-template>
+          <ng-template ngSwitchCase="4">
+            <select
+              class="form-control"
+              [id]="data[i].id"
+              [required]="data[i].required"
+              formControlName="dropdown"
+            >
+              <option [value]="data[i].value[0]">
+                {{ data[i].selectValue[0] }}
+              </option>
+              <option [value]="data[i].value[1]">
+                {{ data[i].selectValue[1] }}
+              </option>
+              <option [value]="data[i].value[2]">
+                {{ data[i].selectValue[2] }}
+              </option>
+            </select>
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="'dropdown'"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
+          </ng-template>
 
-      <app-dropdown [group]="customerForm"></app-dropdown>
+          <ng-template ngSwitchCase="5">
+            <div class="form-group">
+              <input
+                [id]="data[i].id"
+                [type]="data[i].type"
+                [title]="data[i].title"
+                [required]="data[i].required"
+                [readOnly]="data[i].readonly"
+                formControlName="gender"
+                name="gender"
+              /><span>Male</span>
+              <input
+                [id]="data[i].id"
+                [type]="data[i].type"
+                [title]="data[i].title"
+                [required]="data[i].required"
+                [readOnly]="data[i].readonly"
+                formControlName="gender"
+                name="gender"
+              /><span>Female</span>
+            </div>
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="'gender'"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
+          </ng-template>
 
-      <app-checkbox [group]="customerForm"></app-checkbox>
+          <ng-template ngSwitchCase="6">
+            <div class="form-group" [formGroup]="customerForm">
+              <div formGroupName="checkboxGroup" class="form-check">
+                <label class="form-check-label">
+                  <input
+                    type="checkbox"
+                    id="checkboxId1"
+                    formControlName="checkbox1"
+                    value="2"
+                  /><label for="checkboxId1">Activate checkbox 1</label>
+                </label>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input
+                      type="checkbox"
+                      id="checkboxId2"
+                      formControlName="checkbox2"
+                      value="2"
+                    /><label for="checkboxId2">Activate checkbox 2</label>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="'checkboxGroup'"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
+          </ng-template>
 
-      <app-radio-button [group]="customerForm"></app-radio-button>
-
-      <app-checkbox-group [group]="customerForm"></app-checkbox-group>
-
-      <app-radio-button-group [group]="customerForm"></app-radio-button-group>
-
-      <app-datepicker [group]="customerForm"></app-datepicker>
-
-      <br />
-      <button
-        class="btn btn-primary mr-3"
-        type="submit"
-        [title]="
-          customerForm.valid
-            ? 'Save your entered data'
-            : 'Disabled until the form data is valid'
-        "
-        [disabled]="!customerForm.valid"
-      >
-        Save
-      </button>
+          <ng-template ngSwitchCase="7">
+            <mat-form-field>
+              <mat-label>Choose a date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="datepicker"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </ng-template>
+        </div>
+      </div>
+      <app-button [value]="SAVE_BUTTON_VALUE"></app-button>
     </form>
   </div>
 </div>

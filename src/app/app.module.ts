@@ -52,6 +52,7 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { DropdownComponent } from './components/formcontrols/dropdown/dropdown.component';
+import { ButtonComponent } from './components/formcontrols/button/button.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { DropdownComponent } from './components/formcontrols/dropdown/dropdown.c
     ValidationErrorsComponent,
     KeysPipe,
     DropdownComponent,
+    ButtonComponent,
   ],
   entryComponents: [LoginComponent],
   imports: [
