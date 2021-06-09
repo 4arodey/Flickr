@@ -9,4 +9,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() disabled = false;
   @Input() value: string;
+  @Input() type: string;
 }

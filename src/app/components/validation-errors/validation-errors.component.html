@@ -1,9 +1,3 @@
-<div
-  class="invalid-feedback"
-  *ngIf="
-    formGroup.controls[controlName].invalid &&
-    formGroup.controls[controlName].touched
-  "
->
+<div class="invalid-feedback" *ngIf="touchInput(formGroup, controlName)">
   {{ errorMessage }}
 </div>
