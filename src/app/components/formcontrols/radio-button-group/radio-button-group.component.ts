@@ -1,13 +1,41 @@
-import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+export const EXPANDED_RADIO_BUTTON_GROUP_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => RadioButtonGroupComponent),
+  multi: true
+};
 
 @Component({
   selector: 'app-radio-button-group',
   templateUrl: './radio-button-group.component.html',
-  styleUrls: ['./radio-button-group.component.scss']
+  styleUrls: ['./radio-button-group.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [EXPANDED_RADIO_BUTTON_GROUP_VALUE_ACCESSOR],
 })
-export class RadioButtonGroupComponent {
-  public readonly CONTROL_NAME: string = 'gender';
+export class RadioButtonGroupComponent implements ControlValueAccessor {
+  @Input() initialValue: boolean;
+  @Input() text1: string;
+  @Input() text2: string;
+  @Input() id: number;
+  @Input() tittle: string;
+  @Input() required: boolean;
+  @Input() readonly: boolean;
 
-  @Input('group') public dynamicForm: FormGroup;
+  onChange(_: any): void {}
+
+  changeRadio(): void {
+    this.initialValue = !this.initialValue;
+    this.onChange(this.initialValue);
+  }
+
+  writeValue(): void {
+  }
+
+  registerOnChange(fn): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(): void {}
 }

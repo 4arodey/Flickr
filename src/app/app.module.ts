@@ -26,7 +26,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { MatChipsModule } from '@angular/material/chips';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AngularFireModule } from '@angular/fire';
@@ -46,7 +46,6 @@ import { CheckboxComponent } from './components/formcontrols/checkbox/checkbox.c
 import { TextComponent } from './components/formcontrols/text/text.component';
 import { CheckboxGroupComponent } from './components/formcontrols/checkbox-group/checkbox-group.component';
 import { RadioButtonGroupComponent } from './components/formcontrols/radio-button-group/radio-button-group.component';
-import { DatepickerComponent } from './components/formcontrols/datepicker/datepicker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
@@ -80,7 +79,6 @@ import { ButtonComponent } from './components/formcontrols/button/button.compone
     TextComponent,
     CheckboxGroupComponent,
     RadioButtonGroupComponent,
-    DatepickerComponent,
     ValidationErrorsComponent,
     KeysPipe,
     DropdownComponent,
@@ -111,6 +109,7 @@ import { ButtonComponent } from './components/formcontrols/button/button.compone
     AngularFireAuthModule,
     AngularFirestoreModule,
     MatDatepickerModule,
+    FormsModule,
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },

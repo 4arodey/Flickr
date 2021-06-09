@@ -1,16 +1,11 @@
-<div class="form-group" [formGroup]="dynamicForm">
-  <label for="textControlId">Text control label</label><br />
+<div class="form-control">
   <input
-    class="form-control"
-    id="textControlId"
+    [id]="id"
     type="text"
-    placeholder="Input min 3 symbols"
-    formControlName="textControl"
+    [title]="tittle"
+    [required]="required"
+    [readOnly]="readonly"
+    [(ngModel)]="text"
+    (change)="changeText()"
   />
-
-  <app-validation-errors
-    [formGroup]="dynamicForm"
-    [controlName]="CONTROL_NAME"
-    [errorMessage]="ERROR_MESSAGE"
-  ></app-validation-errors>
 </div>

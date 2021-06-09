@@ -6,6 +6,7 @@ export interface IFieldBase {
   title: string;
   required: boolean;
   value: CustomAny;
+  text?: CustomAny;
   readonly?: boolean;
   type: FieldType;
 }

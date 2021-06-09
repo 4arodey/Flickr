@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { IControls, IFieldBase } from 'src/app/interfaces/card.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {IControls, IFieldBase} from 'src/app/interfaces/card.model';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {DataService} from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-form',
@@ -44,8 +44,8 @@ export class FormComponent implements OnInit {
     }
   }
 
-  setFormControlName(controlType: string, id: number): string {
-    return controlType + id;
+  setFormControlName(controlType: string, id: number, salt?: string): string {
+    return !salt ? controlType + id : controlType + id + salt;
   }
 
   save(): void {

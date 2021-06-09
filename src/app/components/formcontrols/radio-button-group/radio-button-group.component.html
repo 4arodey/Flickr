@@ -1,14 +1,28 @@
-<div class="form-group" [formGroup]="dynamicForm">
-  <input
-    type="radio"
-    value="Male"
-    formControlName="gender"
-    name="gender"
-  /><span>Male</span>
-  <input
-    type="radio"
-    value="Female"
-    formControlName="gender"
-    name="gender"
-  /><span>Female</span>
+<div class="form-control">
+  <div class="form-check">
+    <label class="form-check-label">
+      <input
+        type="radio"
+        [id]="id + '1'"
+        [checked]="!initialValue"
+        [required]="false"
+        [readOnly]="false"
+        (change)="changeRadio()"
+        value="2"
+      /><label [htmlFor]="id + '1'">{{ text1 }}</label>
+    </label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="radio"
+          [id]="id + '2'"
+          [checked]="initialValue"
+          [required]="false"
+          [readOnly]="false"
+          (change)="changeRadio()"
+          value="2"
+        /><label [htmlFor]="id + '2'">{{ text2 }}</label>
+      </label>
+    </div>
+  </div>
 </div>

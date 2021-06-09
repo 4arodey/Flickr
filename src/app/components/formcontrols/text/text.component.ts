@@ -1,14 +1,40 @@
-import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+export const EXPANDED_TEXT_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => TextComponent),
+  multi: true
+};
 
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
-  styleUrls: ['./text.component.scss']
+  styleUrls: ['./text.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [EXPANDED_TEXT_VALUE_ACCESSOR],
 })
-export class TextComponent {
-  public readonly CONTROL_NAME: string = 'textControl';
-  public readonly ERROR_MESSAGE: string = 'Please enter min 3 symbols.';
+export class TextComponent implements ControlValueAccessor {
+  @Input() initialValue = false;
+  @Input() id: number;
+  @Input() tittle: string;
+  @Input() required: boolean;
+  @Input() readonly: boolean;
+  @Input() text: string;
 
-  @Input('group') public dynamicForm: FormGroup;
+  onChange(_: any): void {}
+
+  changeText(): void {
+    this.onChange(this.text);
+  }
+
+  writeValue(value: any): void {
+    this.text = value;
+  }
+
+  registerOnChange(fn): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(): void {}
 }

@@ -1,14 +1,47 @@
-import {Component, Input} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+export const EXPANDED_CHECKBOX_GROUP_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => CheckboxGroupComponent),
+  multi: true
+};
 
 @Component({
   selector: 'app-checkbox-group',
   templateUrl: './checkbox-group.component.html',
-  styleUrls: ['./checkbox-group.component.scss']
+  styleUrls: ['./checkbox-group.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [EXPANDED_CHECKBOX_GROUP_VALUE_ACCESSOR],
 })
-export class CheckboxGroupComponent {
-  public readonly CONTROL_NAME: string = 'checkboxGroup';
-  public readonly ERROR_MESSAGE: string = 'Please activate checkboxes';
+export class CheckboxGroupComponent implements ControlValueAccessor {
+  @Input() initialValue1: boolean;
+  @Input() initialValue2: boolean;
+  @Input() text1: string;
+  @Input() text2: string;
+  @Input() id: number;
+  @Input() tittle: string;
+  @Input() required: boolean;
+  @Input() readonly: boolean;
 
-  @Input('group') public dynamicForm: FormGroup;
+  onChange(_: any): void {}
+
+  changeCheckbox1(): void {
+    this.initialValue1 = !this.initialValue1;
+    this.onChange(this.initialValue1);
+  }
+
+  changeCheckbox2(): void {
+    this.initialValue2 = !this.initialValue2;
+    this.onChange(this.initialValue2);
+  }
+
+  writeValue(): void {
+  }
+
+  registerOnChange(fn): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(): void {}
 }

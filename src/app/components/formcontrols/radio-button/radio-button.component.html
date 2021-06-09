@@ -1,8 +1,13 @@
-<div class="form-group" [formGroup]="dynamicForm">
-  <input
-    type="radio"
-    id="radioButton"
-    formControlName="radioButton"
-    name="radioButton"
-  /><label for="radioButton">Check Me</label>
+<div class="form-control">
+  <label>
+    <input
+      type="radio"
+      [title]="tittle"
+      [required]="required"
+      [readOnly]="readonly"
+      [checked]="initialValue"
+      [value]="text"
+    />
+    <span>{{ text }}</span>
+  </label>
 </div>

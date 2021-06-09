@@ -1,28 +1,28 @@
-<div class="form-group" [formGroup]="dynamicForm">
-  <div formGroupName="checkboxGroup" class="form-check">
+<div class="form-control">
+  <div class="form-check">
     <label class="form-check-label">
       <input
         type="checkbox"
-        id="checkboxId1"
-        formControlName="checkbox1"
+        [id]="id + '1'"
+        [checked]="initialValue1"
+        [required]="false"
+        [readOnly]="false"
+        (change)="changeCheckbox1()"
         value="2"
-      /><label for="checkboxId1">Activate checkbox 1</label>
+      /><label [htmlFor]="id + '1'">{{ text1 }}</label>
     </label>
     <div class="form-check">
       <label class="form-check-label">
         <input
           type="checkbox"
-          id="checkboxId2"
-          formControlName="checkbox2"
+          [id]="id + '2'"
+          [checked]="initialValue2"
+          [required]="false"
+          [readOnly]="false"
+          (change)="changeCheckbox2()"
           value="2"
-        /><label for="checkboxId2">Activate checkbox 2</label>
+        /><label [htmlFor]="id + '2'">{{ text2 }}</label>
       </label>
     </div>
-
-    <app-validation-errors
-      [formGroup]="dynamicForm"
-      [controlName]="CONTROL_NAME"
-      [errorMessage]="ERROR_MESSAGE"
-    ></app-validation-errors>
   </div>
 </div>

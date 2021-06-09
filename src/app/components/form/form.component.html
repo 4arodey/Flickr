@@ -4,35 +4,27 @@
       <div *ngFor="let item of data; let i = index">
         <div [ngSwitch]="item.type">
           <ng-template ngSwitchCase="checkbox">
-            <div class="form-control">
-              <input
-                type="checkbox"
-                [id]="item.id"
-                [title]="item.title"
-                [required]="item.required"
-                [readOnly]="item.readonly"
-                [formControlName]="setFormControlName(item.type, item.id)"
-              />
-              {{ data[i].type }}
-              <app-validation-errors
-                [formGroup]="customerForm"
-                [controlName]="setFormControlName(item.type, item.id)"
-                [errorMessage]="'Error'"
-              ></app-validation-errors>
-            </div>
+            <app-checkbox
+              [id]="item.id"
+              [required]="item.required"
+              [readonly]="item.readonly"
+              [text]="item.text"
+              [formControlName]="setFormControlName(item.type, item.id)"
+            ></app-checkbox>
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="setFormControlName(item.type, item.id)"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
           </ng-template>
           <ng-template ngSwitchCase="radio">
-            <label>
-              <input
-                type="radio"
-                [title]="item.title"
-                [required]="item.required"
-                [readOnly]="item.readonly"
-                value="radioButton"
-                [formControlName]="setFormControlName(item.type, item.id)"
-              />
-              <span>radio Button</span>
-            </label>
+            <app-radio-button
+              [id]="item.id"
+              [required]="item.required"
+              [readonly]="item.readonly"
+              [text]="item.text"
+              [formControlName]="setFormControlName(item.type, item.id)"
+            ></app-radio-button>
             <app-validation-errors
               [formGroup]="customerForm"
               [controlName]="setFormControlName(item.type, item.id)"
@@ -40,15 +32,13 @@
             ></app-validation-errors>
           </ng-template>
           <ng-template ngSwitchCase="text">
-            <input
-              class="form-control"
+            <app-text
               [id]="item.id"
-              type="text"
-              [title]="item.title"
+              [text]="item.value"
               [required]="item.required"
-              [readOnly]="item.readonly"
+              [readonly]="item.readonly"
               [formControlName]="setFormControlName(item.type, item.id)"
-            />
+            ></app-text>
             <app-validation-errors
               [formGroup]="customerForm"
               [controlName]="setFormControlName(item.type, item.id)"
@@ -56,11 +46,7 @@
             ></app-validation-errors>
           </ng-template>
           <ng-template ngSwitchCase="select">
-            <select>
-              <option *ngFor="let value of item.value; let i = index">
-                {{ value }}
-              </option>
-            </select>
+            <app-dropdown [id]="item.id" [values]="item.value"></app-dropdown>
             <app-validation-errors
               [formGroup]="customerForm"
               [controlName]="setFormControlName(item.type, item.id)"
@@ -69,54 +55,34 @@
           </ng-template>
 
           <ng-template ngSwitchCase="radioGroup">
-            <label>
-              <input
-                type="radio"
-                [title]="item.title"
-                [required]="item.required"
-                [readOnly]="item.readonly"
-                value="Male"
-                [formControlName]="setFormControlName(item.type, item.id)"
-              />
-              <span>male</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                [title]="item.title"
-                [required]="item.required"
-                [readOnly]="item.readonly"
-                type="radio"
-                value="Female"
-                [formControlName]="setFormControlName(item.type, item.id)"
-              />
-              <span>female</span>
-            </label>
+            <app-radio-button-group
+              [id]="item.id"
+              [initialValue]="false"
+              [text1]="item.text[0]"
+              [text2]="item.text[1]"
+              [formControlName]="setFormControlName(item.type, item.id)"
+            ></app-radio-button-group>
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="setFormControlName(item.type, item.id)"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
           </ng-template>
 
           <ng-template ngSwitchCase="checkboxGroup">
-            <div class="form-group" [formGroup]="customerForm">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input
-                    type="checkbox"
-                    id="checkboxId1"
-                    [formControlName]="setFormControlName(item.type, item.id)"
-                    value="2"
-                  /><label for="checkboxId1">Activate checkbox 1</label>
-                </label>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input
-                      type="checkbox"
-                      id="checkboxId2"
-                      [formControlName]="setFormControlName(item.type, item.id)"
-                      value="2"
-                    /><label for="checkboxId2">Activate checkbox 2</label>
-                  </label>
-                </div>
-              </div>
-            </div>
+            <app-checkbox-group
+              [id]="item.id"
+              [initialValue1]="false"
+              [initialValue2]="false"
+              [text1]="item.text[0]"
+              [text2]="item.text[1]"
+              [formControlName]="setFormControlName(item.type, item.id)"
+            ></app-checkbox-group>
+            <app-validation-errors
+              [formGroup]="customerForm"
+              [controlName]="setFormControlName(item.type, item.id)"
+              [errorMessage]="'Error'"
+            ></app-validation-errors>
           </ng-template>
 
           <ng-template ngSwitchCase="datepicker">
