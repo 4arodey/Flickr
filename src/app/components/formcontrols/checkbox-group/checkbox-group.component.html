@@ -4,9 +4,6 @@
       <input
         type="checkbox"
         [id]="id + '1'"
-        [checked]="initialValue1"
-        [required]="false"
-        [readOnly]="false"
         (change)="changeCheckbox1()"
         value="2"
       /><label [htmlFor]="id + '1'">{{ text1 }}</label>
@@ -16,9 +13,6 @@
         <input
           type="checkbox"
           [id]="id + '2'"
-          [checked]="initialValue2"
-          [required]="false"
-          [readOnly]="false"
           (change)="changeCheckbox2()"
           value="2"
         /><label [htmlFor]="id + '2'">{{ text2 }}</label>

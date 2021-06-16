@@ -4,12 +4,12 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-validation-errors',
   templateUrl: './validation-errors.component.html',
-  styleUrls: ['./validation-errors.component.scss']
+  styleUrls: ['./validation-errors.component.scss'],
 })
 export class ValidationErrorsComponent {
-  @Input() public formGroup: FormGroup;
-  @Input() public controlName: string;
-  @Input() public errorMessage: string;
+  @Input() formGroup: FormGroup;
+  @Input() controlName: string;
+  @Input() errorMessage: string;
 
   touchInput(formGroup: FormGroup, controlName: string): boolean {
     return (formGroup.get(controlName).touched ||

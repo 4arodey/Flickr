@@ -1,97 +1,97 @@
 <div class="card">
   <div class="card-body">
     <form (ngSubmit)="save()" [formGroup]="customerForm">
-      <div *ngFor="let item of data; let i = index">
+      <div *ngFor="let item of data; let i = index; trackBy:dataById">
         <div [ngSwitch]="item.type">
-          <ng-template ngSwitchCase="checkbox">
+          <ng-template [ngSwitchCase]="fieldType.CHECKBOX">
             <app-checkbox
               [id]="item.id"
               [required]="item.required"
               [readonly]="item.readonly"
               [text]="item.text"
-              [formControlName]="setFormControlName(item.type, item.id)"
+              [formControlName]="getFormControlName(item.type, item.id)"
             ></app-checkbox>
             <app-validation-errors
               [formGroup]="customerForm"
-              [controlName]="setFormControlName(item.type, item.id)"
+              [controlName]="getFormControlName(item.type, item.id)"
               [errorMessage]="'Error'"
             ></app-validation-errors>
           </ng-template>
-          <ng-template ngSwitchCase="radio">
+          <ng-template [ngSwitchCase]="fieldType.RADIO">
             <app-radio-button
               [id]="item.id"
               [required]="item.required"
               [readonly]="item.readonly"
               [text]="item.text"
-              [formControlName]="setFormControlName(item.type, item.id)"
+              [formControlName]="getFormControlName(item.type, item.id)"
             ></app-radio-button>
             <app-validation-errors
               [formGroup]="customerForm"
-              [controlName]="setFormControlName(item.type, item.id)"
+              [controlName]="getFormControlName(item.type, item.id)"
               [errorMessage]="'Error'"
             ></app-validation-errors>
           </ng-template>
-          <ng-template ngSwitchCase="text">
+          <ng-template [ngSwitchCase]="fieldType.TEXT">
             <app-text
               [id]="item.id"
               [text]="item.value"
               [required]="item.required"
               [readonly]="item.readonly"
-              [formControlName]="setFormControlName(item.type, item.id)"
+              [formControlName]="getFormControlName(item.type, item.id)"
             ></app-text>
             <app-validation-errors
               [formGroup]="customerForm"
-              [controlName]="setFormControlName(item.type, item.id)"
+              [controlName]="getFormControlName(item.type, item.id)"
               [errorMessage]="'Error'"
             ></app-validation-errors>
           </ng-template>
-          <ng-template ngSwitchCase="select">
+          <ng-template [ngSwitchCase]="fieldType.SELECT">
             <app-dropdown [id]="item.id" [values]="item.value"></app-dropdown>
             <app-validation-errors
               [formGroup]="customerForm"
-              [controlName]="setFormControlName(item.type, item.id)"
+              [controlName]="getFormControlName(item.type, item.id)"
               [errorMessage]="'Error'"
             ></app-validation-errors>
           </ng-template>
 
-          <ng-template ngSwitchCase="radioGroup">
+          <ng-template [ngSwitchCase]="fieldType.RADIO_GROUP">
             <app-radio-button-group
               [id]="item.id"
               [initialValue]="false"
               [text1]="item.text[0]"
               [text2]="item.text[1]"
-              [formControlName]="setFormControlName(item.type, item.id)"
+              [formControlName]="getFormControlName(item.type, item.id)"
             ></app-radio-button-group>
             <app-validation-errors
               [formGroup]="customerForm"
-              [controlName]="setFormControlName(item.type, item.id)"
+              [controlName]="getFormControlName(item.type, item.id)"
               [errorMessage]="'Error'"
             ></app-validation-errors>
           </ng-template>
 
-          <ng-template ngSwitchCase="checkboxGroup">
+          <ng-template [ngSwitchCase]="fieldType.CHECKBOX_GROUP">
             <app-checkbox-group
               [id]="item.id"
               [initialValue1]="false"
               [initialValue2]="false"
               [text1]="item.text[0]"
               [text2]="item.text[1]"
-              [formControlName]="setFormControlName(item.type, item.id)"
+              [formControlName]="getFormControlName(item.type, item.id)"
             ></app-checkbox-group>
             <app-validation-errors
               [formGroup]="customerForm"
-              [controlName]="setFormControlName(item.type, item.id)"
+              [controlName]="getFormControlName(item.type, item.id)"
               [errorMessage]="'Error'"
             ></app-validation-errors>
           </ng-template>
 
-          <ng-template ngSwitchCase="datepicker">
+          <ng-template [ngSwitchCase]="fieldType.DATEPICKER">
             <mat-form-field>
               <mat-label>Choose a date</mat-label>
               <input
                 matInput
                 [matDatepicker]="picker"
-                [formControlName]="setFormControlName(item.type, item.id)"
+                [formControlName]="getFormControlName(item.type, item.id)"
               />
               <mat-datepicker-toggle
                 matSuffix

@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {IControls, IFieldBase} from 'src/app/interfaces/card.model';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {DataService} from 'src/app/services/data.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ControlField, IFieldBase, FieldType } from 'src/app/interfaces/card.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-form',
@@ -11,8 +11,9 @@ import {DataService} from 'src/app/services/data.service';
 })
 export class FormComponent implements OnInit {
   data: IFieldBase[];
-  controls: IControls;
+  controls: ControlField;
   customerForm: FormGroup;
+  fieldType = FieldType;
 
   constructor(
     private fb: FormBuilder,
@@ -23,34 +24,37 @@ export class FormComponent implements OnInit {
     this.initFormGroup();
   }
 
-  initFormGroup(): void {
-    this.data = this.dataService.getData();
-    this.controls = this.dataService.getControls();
-    this.customerForm = this.fb.group({});
-
-    this.data.forEach((item, i) => {
-      const controlName = this.setFormControlName(item.type, item.id);
-      this.addValidators(this.customerForm, controlName, item.type);
-    });
+  dataById(index: number, data: IFieldBase): number {
+    return data.id;
   }
 
-  addValidators(formGroup: FormGroup, controlName: string, typeName: string): void {
-    for (const code in this.controls) {
-      if (code === typeName) {
-        console.log(this.controls[code].value);
-        formGroup.addControl(controlName, this.fb.control(this.controls[code].value));
-        formGroup.controls[controlName].setValidators(this.controls[code].validator);
-      }
-    }
-  }
-
-  setFormControlName(controlType: string, id: number, salt?: string): string {
-    return !salt ? controlType + id : controlType + id + salt;
+  getFormControlName(controlType: string, id: number): string {
+    return controlType + id;
   }
 
   save(): void {
     // remove it after implementation of functionality
     console.log(this.customerForm);
     console.log('Saved:' + JSON.stringify(this.customerForm.value));
+  }
+
+  private initFormGroup(): void {
+    this.data = this.dataService.getData();
+    this.controls = this.dataService.getControls();
+    this.customerForm = this.fb.group({});
+
+    this.data.forEach((item, i) => {
+      const controlName = this.getFormControlName(item.type, item.id);
+      this.addValidators(this.customerForm, controlName, item.type);
+    });
+  }
+
+  private addValidators(formGroup: FormGroup, controlName: string, typeName: string): void {
+    for (const code in this.controls) {
+      if (code === typeName) {
+        formGroup.addControl(controlName, this.fb.control(this.controls[code].value));
+        formGroup.controls[controlName].setValidators(this.controls[code].validator);
+      }
+    }
   }
 }

@@ -1,18 +1,16 @@
 import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
-export const EXPANDED_RADIO_BUTTON_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => RadioButtonComponent),
-  multi: true
-};
-
 @Component({
   selector: 'app-radio-button',
   templateUrl: './radio-button.component.html',
   styleUrls: ['./radio-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [EXPANDED_RADIO_BUTTON_VALUE_ACCESSOR],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => RadioButtonComponent),
+    multi: true
+  }],
 })
 export class RadioButtonComponent {
   @Input() initialValue = false;

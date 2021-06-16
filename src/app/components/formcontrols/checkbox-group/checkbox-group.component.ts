@@ -1,18 +1,16 @@
 import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-export const EXPANDED_CHECKBOX_GROUP_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => CheckboxGroupComponent),
-  multi: true
-};
-
 @Component({
   selector: 'app-checkbox-group',
   templateUrl: './checkbox-group.component.html',
   styleUrls: ['./checkbox-group.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [EXPANDED_CHECKBOX_GROUP_VALUE_ACCESSOR],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => CheckboxGroupComponent),
+    multi: true
+  }],
 })
 export class CheckboxGroupComponent implements ControlValueAccessor {
   @Input() initialValue1: boolean;

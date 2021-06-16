@@ -1,3 +1,5 @@
-.btn {
-  display: block;
+:host {
+  .form-control {
+    display: block;
+  }
 }

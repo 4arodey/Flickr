@@ -1,5 +1,5 @@
-import { CustomAny } from './generic';
 import { Validators } from '@angular/forms';
+import { CustomAny } from 'src/app/interfaces/generic';
 
 export interface IFieldBase {
   id: number;
@@ -9,17 +9,6 @@ export interface IFieldBase {
   text?: CustomAny;
   readonly?: boolean;
   type: FieldType;
-}
-
-export interface IControls {
-  checkbox: IValidatorField;
-  checkboxGroup: IValidatorField;
-  text: IValidatorField;
-  radio: IValidatorField;
-  radioGroup: IValidatorField;
-  select: IValidatorField;
-  checkBox: IValidatorField;
-  datepicker: IValidatorField;
 }
 
 export interface IValidatorField {
@@ -36,3 +25,5 @@ export enum FieldType {
   CHECKBOX_GROUP = 'checkboxGroup',
   DATEPICKER = 'datepicker'
 }
+
+export type ControlField = Record<FieldType, IValidatorField>;

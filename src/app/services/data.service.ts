@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FieldType, IControls, IFieldBase } from 'src/app/interfaces/card.model';
+import { FieldType, ControlField, IFieldBase } from 'src/app/interfaces/card.model';
 import { Validators } from '@angular/forms';
 
 @Injectable({
@@ -19,36 +19,32 @@ export class DataService {
     { id: 11, title: '7', required: true, value: true, readonly: false, type: FieldType.DATEPICKER },
   ];
 
-  controls: IControls = {
-    checkbox: {
+  controlDefaultValueAndValidators: ControlField = {
+    [FieldType.CHECKBOX]: {
       value: false,
       validator: Validators.requiredTrue,
     },
-    checkboxGroup: {
+    [FieldType.CHECKBOX_GROUP]: {
       value: false,
       validator: Validators.requiredTrue,
     },
-    text: {
+    [FieldType.TEXT]: {
       value: 'default text',
       validator: [Validators.minLength(1), Validators.maxLength(5)],
     },
-    radio: {
+    [FieldType.RADIO]: {
       value: '',
       validator: Validators.required,
     },
-    radioGroup: {
+    [FieldType.RADIO_GROUP]: {
       value: '',
       validator: Validators.required,
     },
-    select: {
+    [FieldType.SELECT]: {
       value: '',
       validator: Validators.required,
     },
-    checkBox: {
-      value: false,
-      validator: Validators.requiredTrue,
-    },
-    datepicker: {
+    [FieldType.DATEPICKER]: {
       value: '',
       validator: Validators.required,
     },
@@ -58,7 +54,7 @@ export class DataService {
     return this.data;
   }
 
-  getControls(): IControls {
-    return this.controls;
+  getControls(): ControlField {
+    return this.controlDefaultValueAndValidators;
   }
 }
