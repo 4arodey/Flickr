@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public dataService: DataService,
+    private dataService: DataService,
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
   }
 
   getFormControlName(controlType: string, id: number): string {
-    return controlType + id;
+    return `${controlType + id}`;
   }
 
   save(): void {
