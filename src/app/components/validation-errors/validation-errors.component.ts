@@ -11,9 +11,9 @@ export class ValidationErrorsComponent {
   @Input() controlName: string;
   @Input() errorMessage: string;
 
-  touchInput(formGroup: FormGroup, controlName: string): boolean {
-    return (formGroup.get(controlName).touched ||
-      formGroup.get(controlName).dirty) &&
-      !!formGroup.get(controlName).errors;
+  get touchInput(): boolean {
+    return (this.formGroup.get(this.controlName).touched ||
+      this.formGroup.get(this.controlName).dirty) &&
+      !!this.formGroup.get(this.controlName).errors;
   }
 }
