@@ -55,7 +55,6 @@
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </div>
-
         <div *ngSwitchCase="fieldType.RADIO_GROUP">
           <app-radio-button-group
             [id]="item.id"
@@ -70,7 +69,6 @@
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </div>
-
         <div *ngSwitchCase="fieldType.CHECKBOX_GROUP">
           <app-checkbox-group
             [id]="item.id"
@@ -86,7 +84,6 @@
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </div>
-
         <div *ngSwitchCase="fieldType.DATEPICKER">
           <mat-form-field>
             <mat-label>Choose a date</mat-label>
