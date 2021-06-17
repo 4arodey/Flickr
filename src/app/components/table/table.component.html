@@ -1,18 +1,16 @@
 <table>
   <thead>
-  <tr>
-    <th *ngFor="let item of displayedColumns">{{item}}</th>
-  </tr>
-  </thead>
-  <ng-container *ngFor="let strings of data">
-    <tbody>
     <tr>
-      <ng-container *ngFor="let item of objectValuesToArray(strings)">
-        <td>
-          {{item}}
-        </td>
-      </ng-container>
+      <th *ngFor="let item of displayedColumns">
+        {{ item }}
+      </th>
     </tr>
-    </tbody>
-  </ng-container>
+  </thead>
+  <tbody *ngFor="let strings of data">
+    <tr>
+      <td *ngFor="let item of objectValuesToArray(strings)">
+        {{ item }}
+      </td>
+    </tr>
+  </tbody>
 </table>
