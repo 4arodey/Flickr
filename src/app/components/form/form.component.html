@@ -5,7 +5,7 @@
         *ngFor="let item of data; let i = index; trackBy: dataById"
         [ngSwitch]="item.type"
       >
-        <div *ngSwitchCase="fieldType.CHECKBOX">
+        <ng-container *ngSwitchCase="fieldType.CHECKBOX">
           <app-checkbox
             [id]="item.id"
             [required]="item.required"
@@ -18,8 +18,8 @@
             [controlName]="item.type + item.id"
             [errorMessage]="'Error'"
           ></app-validation-errors>
-        </div>
-        <div *ngSwitchCase="fieldType.RADIO">
+        </ng-container>
+        <ng-container *ngSwitchCase="fieldType.RADIO">
           <app-radio-button
             [id]="item.id"
             [required]="item.required"
@@ -32,8 +32,8 @@
             [controlName]="item.type + item.id"
             [errorMessage]="'Error'"
           ></app-validation-errors>
-        </div>
-        <div *ngSwitchCase="fieldType.TEXT">
+        </ng-container>
+        <ng-container *ngSwitchCase="fieldType.TEXT">
           <app-text
             [id]="item.id"
             [text]="item.value"
@@ -46,16 +46,16 @@
             [controlName]="item.type + item.id"
             [errorMessage]="'Error'"
           ></app-validation-errors>
-        </div>
-        <div *ngSwitchCase="fieldType.SELECT">
+        </ng-container>
+        <ng-container *ngSwitchCase="fieldType.SELECT">
           <app-dropdown [id]="item.id" [values]="item.value"></app-dropdown>
           <app-validation-errors
             [formGroup]="customerForm"
             [controlName]="item.type + item.id"
             [errorMessage]="'Error'"
           ></app-validation-errors>
-        </div>
-        <div *ngSwitchCase="fieldType.RADIO_GROUP">
+        </ng-container>
+        <ng-container *ngSwitchCase="fieldType.RADIO_GROUP">
           <app-radio-button-group
             [id]="item.id"
             [initialValue]="false"
@@ -68,8 +68,8 @@
             [controlName]="item.type + item.id"
             [errorMessage]="'Error'"
           ></app-validation-errors>
-        </div>
-        <div *ngSwitchCase="fieldType.CHECKBOX_GROUP">
+        </ng-container>
+        <ng-container *ngSwitchCase="fieldType.CHECKBOX_GROUP">
           <app-checkbox-group
             [id]="item.id"
             [initialValue1]="false"
@@ -83,8 +83,8 @@
             [controlName]="item.type + item.id"
             [errorMessage]="'Error'"
           ></app-validation-errors>
-        </div>
-        <div *ngSwitchCase="fieldType.DATEPICKER">
+        </ng-container>
+        <ng-container *ngSwitchCase="fieldType.DATEPICKER">
           <mat-form-field>
             <mat-label>Choose a date</mat-label>
             <input
@@ -98,7 +98,7 @@
             ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-        </div>
+        </ng-container>
       </div>
     </form>
   </div>
