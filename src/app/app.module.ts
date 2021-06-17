@@ -53,6 +53,8 @@ import { ValidationErrorsComponent } from './components/validation-errors/valida
 import { KeysPipe } from './pipes/keys.pipe';
 import { DropdownComponent } from './components/formcontrols/dropdown/dropdown.component';
 import { ButtonComponent } from './components/formcontrols/button/button.component';
+import { SmartTableComponent } from './pages/smart-table/smart-table.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { ButtonComponent } from './components/formcontrols/button/button.compone
     KeysPipe,
     DropdownComponent,
     ButtonComponent,
+    SmartTableComponent,
+    TableComponent,
   ],
   entryComponents: [LoginComponent],
   imports: [
