@@ -11,11 +11,11 @@
             [required]="item.required"
             [readonly]="item.readonly"
             [text]="item.text"
-            [formControlName]="item.type + item.id"
+            [formControlName]="item.formControlName"
           ></app-checkbox>
           <app-validation-errors
             [formGroup]="customerForm"
-            [controlName]="item.type + item.id"
+            [controlName]="item.formControlName"
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </ng-container>
@@ -25,11 +25,11 @@
             [required]="item.required"
             [readonly]="item.readonly"
             [text]="item.text"
-            [formControlName]="item.type + item.id"
+            [formControlName]="item.formControlName"
           ></app-radio-button>
           <app-validation-errors
             [formGroup]="customerForm"
-            [controlName]="item.type + item.id"
+            [controlName]="item.formControlName"
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </ng-container>
@@ -39,11 +39,11 @@
             [text]="item.value"
             [required]="item.required"
             [readonly]="item.readonly"
-            [formControlName]="item.type + item.id"
+            [formControlName]="item.formControlName"
           ></app-text>
           <app-validation-errors
             [formGroup]="customerForm"
-            [controlName]="item.type + item.id"
+            [controlName]="item.formControlName"
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </ng-container>
@@ -51,7 +51,7 @@
           <app-dropdown [id]="item.id" [values]="item.value"></app-dropdown>
           <app-validation-errors
             [formGroup]="customerForm"
-            [controlName]="item.type + item.id"
+            [controlName]="item.formControlName"
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </ng-container>
@@ -61,11 +61,11 @@
             [initialValue]="false"
             [text1]="item.text[0]"
             [text2]="item.text[1]"
-            [formControlName]="item.type + item.id"
+            [formControlName]="item.formControlName"
           ></app-radio-button-group>
           <app-validation-errors
             [formGroup]="customerForm"
-            [controlName]="item.type + item.id"
+            [controlName]="item.formControlName"
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </ng-container>
@@ -76,11 +76,11 @@
             [initialValue2]="false"
             [text1]="item.text[0]"
             [text2]="item.text[1]"
-            [formControlName]="item.type + item.id"
+            [formControlName]="item.formControlName"
           ></app-checkbox-group>
           <app-validation-errors
             [formGroup]="customerForm"
-            [controlName]="item.type + item.id"
+            [controlName]="item.formControlName"
             [errorMessage]="'Error'"
           ></app-validation-errors>
         </ng-container>
@@ -90,7 +90,7 @@
             <input
               matInput
               [matDatepicker]="picker"
-              [formControlName]="item.type + item.id"
+              [formControlName]="item.formControlName"
             />
             <mat-datepicker-toggle
               matSuffix

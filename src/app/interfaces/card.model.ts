@@ -9,6 +9,7 @@ export interface IFieldBase {
   text?: CustomAny;
   readonly?: boolean;
   type: FieldType;
+  formControlName?: string;
 }
 
 export interface IValidatorField {

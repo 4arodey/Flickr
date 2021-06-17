@@ -28,10 +28,6 @@ export class FormComponent implements OnInit {
     return data.id;
   }
 
-  getFormControlName(controlType: string, id: number): string {
-    return `${controlType + id}`;
-  }
-
   save(): void {
     // remove it after implementation of functionality
     console.log(this.customerForm);
@@ -44,8 +40,7 @@ export class FormComponent implements OnInit {
     this.customerForm = this.fb.group({});
 
     this.data.forEach((item, i) => {
-      const controlName = this.getFormControlName(item.type, item.id);
-      this.addValidators(this.customerForm, controlName, item.type);
+      this.addValidators(this.customerForm, item.formControlName, item.type);
     });
   }
 

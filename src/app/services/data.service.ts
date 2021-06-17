@@ -19,7 +19,7 @@ export class DataService {
     { id: 11, title: '7', required: true, value: true, readonly: false, type: FieldType.DATEPICKER },
   ];
 
-  controlDefaultValueAndValidators: ControlField = {
+  private controlDefaultValueAndValidators: ControlField = {
     [FieldType.CHECKBOX]: {
       value: false,
       validator: Validators.requiredTrue,
@@ -51,10 +51,18 @@ export class DataService {
   };
 
   getData(): IFieldBase[] {
+    this.addFormControlName(this.data);
     return this.data;
   }
 
   getControls(): ControlField {
     return this.controlDefaultValueAndValidators;
+  }
+
+  private addFormControlName(data: IFieldBase[]): void {
+    this.data = data.map((field: IFieldBase) => ({
+      ...field,
+      formControlName: field.type + field.id,
+    }));
   }
 }
