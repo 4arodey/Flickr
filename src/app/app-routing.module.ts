@@ -6,6 +6,7 @@ import { BookmarksComponent } from 'src/app/pages/bookmarks/bookmarks.component'
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { UserLoginComponent } from 'src/app/pages/user-login/user-login.component';
 import { DynamicFormComponent } from 'src/app/pages/dynamic-form/dynamic-form.component';
+import {SmartTableComponent} from 'src/app/pages/smart-table/smart-table.component';
 
 const routes: Routes = [
   {
@@ -25,16 +26,20 @@ const routes: Routes = [
   {
     path: 'bookmarks',
     component: BookmarksComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
 
   },
   {
     path: 'form',
-    component: DynamicFormComponent
+    component: DynamicFormComponent,
+  },
+  {
+    path: 'table',
+    component: SmartTableComponent,
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   }
 ];
 
